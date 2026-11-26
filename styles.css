@@ -1,0 +1,110 @@
+/* ==========================================
+American Fried Chicken Kambil - style.css
+Dark Luxury Palette, Animations & UI Styles
+========================================== */
+
+:root {
+--afc-red: #991B1B;
+--afc-red-bright: #DC2626;
+--afc-dark-red: #7F1D1D;
+--afc-gold: #D97706;
+--afc-light-gold: #FBBF24;
+--afc-yellow: #FACC15;
+--afc-bg: #030712;
+--afc-dark: #0A0A0A;
+--afc-surface: #171717;
+--afc-card: #212121;
+--afc-text: #F3F4F6;
+--afc-muted: #9CA3AF;
+}
+
+/* Smooth scrolling across sections */
+html {
+scroll-behavior: smooth;
+}
+
+/* Base body styling */
+body {
+background-color: var(--afc-bg);
+color: var(--afc-text);
+font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+overflow-x: hidden;
+}
+
+/* Display typography */
+.font-display {
+font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+}
+
+/* Floating card animation */
+@keyframes float {
+0%, 100% {
+transform: translateY(0px);
+}
+50% {
+transform: translateY(-8px);
+}
+}
+
+.animate-float {
+animation: float 4s ease-in-out infinite;
+}
+
+/* Hero dot-grid background pattern */
+.hero-pattern {
+background-color: var(--afc-dark);
+background-image: radial-gradient(rgba(217, 119, 6, 0.14) 1px, transparent 1px);
+background-size: 28px 28px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+width: 8px;
+height: 8px;
+}
+
+::-webkit-scrollbar-track {
+background: var(--afc-surface);
+}
+
+::-webkit-scrollbar-thumb {
+background: var(--afc-gold);
+border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: var(--afc-light-gold);
+}
+
+/* Horizontal category filter bar scrollbar */
+#category-tabs {
+scrollbar-width: thin;
+scrollbar-color: rgba(217, 119, 6, 0.45) transparent;
+}
+
+#category-tabs::-webkit-scrollbar {
+height: 4px;
+}
+
+#category-tabs::-webkit-scrollbar-thumb {
+background: rgba(217, 119, 6, 0.45);
+border-radius: 9999px;
+}
+
+/* Text highlight selection */
+::selection {
+background-color: #f59e0b;
+color: #030712;
+}
+
+/* Map iframe styling */
+iframe {
+filter: grayscale(100%) contrast(125%);
+transition: filter 0.3s ease;
+}
+
+iframe:hover {
+filter: grayscale(35%) contrast(110%);
+}

@@ -1,0 +1,2221 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>American Fried Chicken | Kambil, Kerala</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,650;0,700;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            red: '#991B1B',
+                            darkRed: '#7F1D1D',
+                            gold: '#D97706',
+                            lightGold: '#FBBF24',
+                            dark: '#0A0A0A',
+                            surface: '#171717',
+                            card: '#212121'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+        .hero-pattern {
+            background-color: #0A0A0A;
+            background-image: radial-gradient(rgba(217, 119, 6, 0.12) 1px, transparent 1px);
+            background-size: 28px 28px;
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #171717; }
+        ::-webkit-scrollbar-thumb { background: #D97706; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-100 font-sans antialiased selection:bg-amber-500 selection:text-gray-950">
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 bg-gray-950/95 backdrop-blur-md text-white border-b border-amber-500/20 shadow-2xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20 sm:h-24">
+                <!-- Official AFC Circular Rooster Logo -->
+                <a href="#" class="flex items-center gap-3.5 group">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform shrink-0">
+                        <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Red Circle with Yellow Border -->
+                            <circle cx="100" cy="100" r="94" fill="#DC2626" stroke="#FACC15" stroke-width="8"/>
+                            <!-- White Stylized Rooster Silhouette -->
+                            <g fill="#FFFFFF">
+                                <!-- Comb -->
+                                <path d="M84 36 C82 28, 90 25, 93 31 C96 23, 105 24, 105 32 C110 27, 117 32, 113 39 C117 41, 116 48, 110 49 L106 49 C104 42, 92 40, 84 36 Z"/>
+                                <!-- Head, Beak & Wattle -->
+                                <path d="M85 38 C79 39, 75 43, 73 46 L81 48 C77 50, 74 54, 76 58 C78 61, 83 61, 86 58 C88 55, 88 51, 86 49 L92 48 Z"/>
+                                <!-- Chest & Neck Sweep -->
+                                <path d="M92 46 C96 58, 92 68, 76 74 C56 82, 48 102, 58 122 C63 131, 71 136, 78 138 C68 128, 63 114, 67 99 C71 86, 84 79, 98 73 C106 69, 108 58, 104 46 Z"/>
+                                <!-- Back & Tail Feathers -->
+                                <path d="M104 52 C110 66, 110 84, 100 102 C95 111, 90 121, 92 132 C98 121, 105 109, 111 97 C115 89, 117 80, 116 71 C126 65, 142 66, 154 78 C164 88, 166 103, 161 116 C160 102, 152 90, 138 87 C148 96, 152 110, 147 124 C144 111, 135 101, 122 99 C131 108, 134 121, 128 133 C124 121, 116 112, 105 110 C112 100, 117 86, 116 72 C115 63, 110 55, 104 52 Z"/>
+                            </g>
+                            <!-- Bold AFC Typography -->
+                            <text x="100" y="170" text-anchor="middle" fill="#FFFFFF" font-family="Georgia, 'Times New Roman', serif" font-weight="900" font-size="45" letter-spacing="2">AFC</text>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="font-display text-2xl sm:text-3xl tracking-wide text-white block leading-none font-bold">AMERICAN</span>
+                        <span class="text-xs sm:text-sm font-bold tracking-widest text-amber-400 uppercase block mt-1" data-ml="കമ്പിൽ • ഫ്രൈഡ് ചിക്കൻ" data-en="Fried Chicken • Kambil">Fried Chicken • Kambil</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold tracking-wide">
+                    <a href="#home" class="hover:text-amber-400 transition-colors">Home</a>
+                    <a href="#menu" class="hover:text-amber-400 transition-colors">Menu</a>
+                    <a href="#booking" class="hover:text-amber-400 transition-colors">Table Booking</a>
+                    <a href="#reviews" class="hover:text-amber-400 transition-colors">Reviews (5.0 ★)</a>
+                    <a href="#contact" class="hover:text-amber-400 transition-colors">Location</a>
+                </nav>
+
+                <!-- Action Buttons -->
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <!-- Language Toggle -->
+                    <button onclick="toggleLanguage()" class="bg-gray-900 border border-amber-500/30 text-amber-400 px-3 py-2 rounded-xl text-xs font-bold hover:bg-gray-800 transition-all cursor-pointer flex items-center gap-1.5">
+                        <i class="fa-solid fa-globe"></i>
+                        <span id="lang-label">MALAYALAM</span>
+                    </button>
+
+                    <!-- Cart Toggle Button -->
+                    <button onclick="toggleCartModal()" class="relative bg-gray-900 border border-amber-500/30 hover:border-amber-500 text-amber-400 px-3.5 py-2.5 rounded-xl transition-all cursor-pointer flex items-center gap-2">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span id="cart-badge-count" class="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-lg">0</span>
+                    </button>
+
+                    <!-- Admin Dashboard Button -->
+                    <button onclick="openAdminModal()" class="bg-gray-900 hover:bg-gray-800 text-gray-300 border border-gray-700 px-3 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5">
+                        <i class="fa-solid fa-gauge-high text-amber-400"></i>
+                        <span class="hidden sm:inline">Admin</span>
+                    </button>
+
+                    <a href="tel:09072113450" class="bg-red-700 hover:bg-red-600 text-white font-bold text-xs sm:text-sm px-3.5 sm:px-4 py-2.5 rounded-xl shadow-lg transition-all hidden sm:flex items-center gap-1.5">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>090721 13450</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-pattern text-white relative overflow-hidden py-16 sm:py-28 border-b border-amber-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="lg:col-span-7 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 px-4 py-2 rounded-full text-xs sm:text-sm font-medium text-amber-400 mb-6 shadow-inner">
+                        <span class="flex items-center text-amber-400">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </span>
+                        <span class="text-white font-bold ml-1">5.0 Google Rating</span>
+                        <span class="text-amber-500/65">• Kambil's Best Broast</span>
+                    </div>
+
+                    <h1 class="font-display text-5xl sm:text-7xl lg:text-8xl tracking-tight leading-[1.05] mb-6 font-bold">
+                        LUXURY CRUNCH, <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-amber-500">ROYAL FLAVOR</span>
+                    </h1>
+
+                    <p class="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed font-light">
+                        Welcome to <strong class="text-white font-semibold">American Fried Chicken, Kambil</strong>. Indulge in legendary crispy pressure-fried broast, juicy zinger burgers, alfaham mandi, and refreshing mojitos. Order online for instant delivery or pickup.
+                    </p>
+
+                    <!-- Quick Status Badges -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-8 text-xs sm:text-sm">
+                        <div class="bg-emerald-950/80 border border-emerald-500/30 text-emerald-300 px-4 py-2.5 rounded-xl flex items-center gap-2 font-medium">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                            Open Daily • Closes 12:00 AM Midnight
+                        </div>
+                        <div class="bg-gray-900 border border-gray-800 text-gray-300 px-4 py-2.5 rounded-xl flex items-center gap-2">
+                            <i class="fa-solid fa-motorcycle text-amber-500"></i>
+                            Free Home Delivery within 4 Km • Kambil
+                        </div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#menu" class="w-full sm:w-auto bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-gray-950 font-extrabold px-8 py-4 rounded-xl shadow-xl shadow-amber-500/20 transition-all text-center flex items-center justify-center gap-2.5 text-base">
+                            <span>Order Online Now</span>
+                            <i class="fa-solid fa-arrow-down"></i>
+                        </a>
+                        <a href="#booking" class="w-full sm:w-auto bg-gray-900 hover:bg-gray-800 text-amber-400 border border-amber-500/40 font-bold px-8 py-4 rounded-xl transition-all text-center flex items-center justify-center gap-2.5 text-base shadow-lg">
+                            <i class="fa-solid fa-chair"></i>
+                            <span>Book a Table</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Visual Card with Realistic Hero Image -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md bg-gradient-to-br from-amber-500 via-red-800 to-amber-700 p-1.5 rounded-[28px] shadow-2xl animate-float">
+                        <div class="bg-gray-900 rounded-[22px] overflow-hidden relative">
+                            <div class="h-64 sm:h-72 w-full relative overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?q=80&w=800&auto=format&fit=crop" alt="Crispy Fried Chicken" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent"></div>
+                                <!-- Official AFC Emblem Badge -->
+                                <div class="absolute top-3.5 left-3.5 w-14 h-14 rounded-full shadow-xl">
+                                    <svg viewBox="0 0 200 200" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="100" cy="100" r="94" fill="#DC2626" stroke="#FACC15" stroke-width="8"/>
+                                        <g fill="#FFFFFF">
+                                            <path d="M84 36 C82 28, 90 25, 93 31 C96 23, 105 24, 105 32 C110 27, 117 32, 113 39 C117 41, 116 48, 110 49 L106 49 C104 42, 92 40, 84 36 Z"/>
+                                            <path d="M85 38 C79 39, 75 43, 73 46 L81 48 C77 50, 74 54, 76 58 C78 61, 83 61, 86 58 C88 55, 88 51, 86 49 L92 48 Z"/>
+                                            <path d="M92 46 C96 58, 92 68, 76 74 C56 82, 48 102, 58 122 C63 131, 71 136, 78 138 C68 128, 63 114, 67 99 C71 86, 84 79, 98 73 C106 69, 108 58, 104 46 Z"/>
+                                            <path d="M104 52 C110 66, 110 84, 100 102 C95 111, 90 121, 92 132 C98 121, 105 109, 111 97 C115 89, 117 80, 116 71 C126 65, 142 66, 154 78 C164 88, 166 103, 161 116 C160 102, 152 90, 138 87 C148 96, 152 110, 147 124 C144 111, 135 101, 122 99 C131 108, 134 121, 128 133 C124 121, 116 112, 105 110 C112 100, 117 86, 116 72 C115 63, 110 55, 104 52 Z"/>
+                                        </g>
+                                        <text x="100" y="170" text-anchor="middle" fill="#FFFFFF" font-family="Georgia, 'Times New Roman', serif" font-weight="900" font-size="45" letter-spacing="2">AFC</text>
+                                    </svg>
+                                </div>
+                                <span class="absolute top-4 right-4 bg-amber-500 text-gray-950 font-black text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full shadow-lg">Chef's Special</span>
+                            </div>
+                            <div class="p-6 text-center">
+                                <h2 class="font-display text-2xl sm:text-3xl text-white tracking-wide font-bold">ROYAL FRIED CHICKEN BUCKET</h2>
+                                <p class="text-gray-400 text-xs sm:text-sm mt-2 font-light">Crispy on the outside, succulent and tender inside with signature spice rub.</p>
+                                <div class="mt-5 pt-4 border-t border-gray-800 flex items-center justify-between text-xs sm:text-sm">
+                                    <span class="text-gray-400">Order Hotline</span>
+                                    <a href="tel:09072113450" class="text-amber-400 font-bold hover:underline">090721 13450 →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE PLOIO ORDER & DELIVERY SYSTEM -->
+    <section id="ploio-order" class="py-14 sm:py-20 bg-gray-900 border-b border-amber-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-amber-400 font-bold text-xs uppercase tracking-widest bg-amber-500/10 px-3.5 py-1.5 rounded-full border border-amber-500/30">Live Ploio System</span>
+                <h2 class="font-display text-4xl sm:text-5xl text-white tracking-wide mt-3 font-bold">TRACK YOUR LIVE ORDER</h2>
+                <p class="text-gray-400 text-sm sm:text-base mt-2">Enter your Order ID to watch real-time status updates via Ploio in Kambil.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- Status & Tracking Form -->
+                <div class="lg:col-span-6 bg-gray-950 rounded-3xl p-6 sm:p-8 border border-amber-500/20 shadow-2xl">
+                    <h3 class="font-display text-2xl text-white mb-4 font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-magnifying-glass-location text-amber-500"></i> Track Order Status
+                    </h3>
+                    <div class="space-y-4 mb-6">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">Enter Order ID</label>
+                            <div class="flex gap-2">
+                                <input type="text" id="track-order-id-input" placeholder="e.g., AFC-482910" class="w-full px-4 py-3 rounded-xl bg-gray-900 border border-gray-800 text-white focus:ring-2 focus:ring-amber-500 focus:border-transparent text-sm font-mono">
+                                <button onclick="trackOrderLive()" class="bg-amber-500 hover:bg-amber-400 text-gray-950 font-extrabold px-5 py-3 rounded-xl text-sm transition-all shrink-0 cursor-pointer">Track</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-900 p-5 rounded-2xl border border-gray-800">
+                        <h4 class="text-xs font-bold text-amber-400 uppercase tracking-wider mb-2">Active Cart Summary</h4>
+                        <div id="ploio-cart-summary-preview" class="text-sm text-gray-300 mb-3">
+                            No items in active cart. Add items from the menu below to checkout.
+                        </div>
+                        <button onclick="toggleCartModal()" class="w-full bg-gray-800 hover:bg-gray-700 text-white font-bold py-2.5 rounded-xl text-xs transition-colors border border-gray-700 cursor-pointer flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-cart-shopping text-amber-400"></i> Open Cart & Checkout
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Live Status Timeline Display -->
+                <div class="lg:col-span-6 bg-gray-950 rounded-3xl p-6 sm:p-8 border border-amber-500/20 shadow-2xl flex flex-col justify-between min-h-[420px]">
+                    <div>
+                        <div class="flex items-center justify-between pb-4 border-b border-gray-800 mb-6">
+                            <div>
+                                <span class="text-xs text-amber-400 font-bold uppercase tracking-wider">Ploio Tracker v2.5</span>
+                                <h3 class="font-display text-2xl text-white font-bold">REAL-TIME STATUS</h3>
+                            </div>
+                            <div id="order-id-badge" class="bg-gray-900 text-gray-400 text-xs px-3 py-1.5 rounded-full font-mono border border-gray-800">
+                                No Active Order
+                            </div>
+                        </div>
+
+                        <!-- Status Timeline -->
+                        <div id="tracking-timeline" class="space-y-6 relative before:absolute before:left-4 before:top-2 before:bottom-2 before:w-0.5 before:bg-gray-800 my-4">
+                            <div class="flex items-start gap-4 relative">
+                                <div id="step-1-icon" class="w-8 h-8 rounded-full bg-gray-800 text-gray-400 flex items-center justify-center font-bold text-xs shrink-0 z-10 transition-all">1</div>
+                                <div>
+                                    <h4 id="step-1-title" class="text-sm font-bold text-gray-400">Order Placed</h4>
+                                    <p id="step-1-desc" class="text-xs text-gray-500">Waiting for order submission...</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4 relative">
+                                <div id="step-2-icon" class="w-8 h-8 rounded-full bg-gray-800 text-gray-400 flex items-center justify-center font-bold text-xs shrink-0 z-10 transition-all">2</div>
+                                <div>
+                                    <h4 id="step-2-title" class="text-sm font-bold text-gray-400">Kitchen Preparing</h4>
+                                    <p id="step-2-desc" class="text-xs text-gray-500">Marinating & pressure frying fresh chicken</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4 relative">
+                                <div id="step-3-icon" class="w-8 h-8 rounded-full bg-gray-800 text-gray-400 flex items-center justify-center font-bold text-xs shrink-0 z-10 transition-all">3</div>
+                                <div>
+                                    <h4 id="step-3-title" class="text-sm font-bold text-gray-400">Crispy Packing</h4>
+                                    <p id="step-3-desc" class="text-xs text-gray-500">Hot fries, buns & garlic dip packed securely</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4 relative">
+                                <div id="step-4-icon" class="w-8 h-8 rounded-full bg-gray-800 text-gray-400 flex items-center justify-center font-bold text-xs shrink-0 z-10 transition-all">4</div>
+                                <div>
+                                    <h4 id="step-4-title" class="text-sm font-bold text-gray-400">Out for Delivery / Ready</h4>
+                                    <p id="step-4-desc" class="text-xs text-gray-500">Ploio rider on the way in Kambil</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="tracking-footer" class="mt-6 pt-5 border-t border-gray-800 text-center">
+                        <p class="text-xs text-gray-400">Enter your Order ID above to track your order status live.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+            <div>
+                <span class="text-amber-400 font-bold text-xs uppercase tracking-widest bg-amber-500/10 px-3.5 py-1.5 rounded-full border border-amber-500/30">Exquisite Taste</span>
+                <h2 class="font-display text-4xl sm:text-5xl text-white tracking-wide mt-3 font-bold">OUR 5-STAR MENU</h2>
+                <p class="text-gray-400 text-sm sm:text-base mt-1">Browse crispy specialties and add items to cart.</p>
+            </div>
+        </div>
+
+        <!-- Category Filter & Search -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mb-8 bg-gray-900 p-3 rounded-2xl shadow-xl border border-amber-500/20">
+            <div id="category-tabs" class="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0">
+                <button onclick="filterCategory('All')" class="cat-btn active px-4 py-2 rounded-xl text-sm font-bold bg-amber-500 text-gray-950 transition-all whitespace-nowrap cursor-pointer">All Items</button>
+                <button onclick="filterCategory('Fried Chicken')" class="cat-btn px-4 py-2 rounded-xl text-sm font-semibold text-gray-300 hover:bg-gray-800 transition-all whitespace-nowrap cursor-pointer">🍗 Fried Chicken</button>
+                <button onclick="filterCategory('Burgers')" class="cat-btn px-4 py-2 rounded-xl text-sm font-semibold text-gray-300 hover:bg-gray-800 transition-all whitespace-nowrap cursor-pointer">🍔 Burgers</button>
+                <button onclick="filterCategory('Pizza')" class="cat-btn px-4 py-2 rounded-xl text-sm font-semibold text-gray-300 hover:bg-gray-800 transition-all whitespace-nowrap cursor-pointer">🍕 Pizza</button>
+                <button onclick="filterCategory('Loaded Fries')" class="cat-btn px-4 py-2 rounded-xl text-sm font-semibold text-gray-300 hover:bg-gray-800 transition-all whitespace-nowrap cursor-pointer">🍟 Loaded Fries</button>
+                <button onclick="filterCategory('Roll Zone')" class="cat-btn px-4 py-2 rounded-xl text-sm font-semibold text-gray-300 hover:bg-gray-800 transition-all whitespace-nowrap cursor-pointer">🌯 Roll Zone</button>
+                <button onclick="filterCategory('Momos')" class="cat-btn px-4 py-2 rounded-xl text-sm font-semibold text-gray-300 hover:bg-gray-800 transition-all whitespace-nowrap cursor-pointer">🥟 Momos</button>
+                <button onclick="filterCategory('Combos & Meals')" class="cat-btn px-4 py-2 rounded-xl text-sm font-semibold text-gray-300 hover:bg-gray-800 transition-all whitespace-nowrap cursor-pointer">🍱 Meals & Party Box</button>
+                <button onclick="filterCategory('Add-Ons & Drinks')" class="cat-btn px-4 py-2 rounded-xl text-sm font-semibold text-gray-300 hover:bg-gray-800 transition-all whitespace-nowrap cursor-pointer">🥤 Add-Ons & Drinks</button>
+            </div>
+
+            <div class="relative min-w-[220px]">
+                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+                <input type="text" id="menu-search" oninput="renderMenu()" placeholder="Search menu..." class="w-full pl-9 pr-4 py-2 bg-gray-950 border border-gray-800 rounded-xl text-sm text-white focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent">
+            </div>
+        </div>
+
+        <!-- Menu Grid -->
+        <div id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+        <!-- Empty State -->
+        <div id="empty-menu-state" class="hidden text-center py-20 bg-gray-900 rounded-3xl border border-dashed border-amber-500/30">
+            <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4 text-amber-400 text-2xl">
+                <i class="fa-solid fa-utensils"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">No menu items found</h3>
+            <p class="text-gray-400 text-sm mt-1 mb-5">Try clearing your search filter or add a new item.</p>
+            <button onclick="openAddModal()" class="bg-amber-500 text-gray-950 font-bold px-5 py-2.5 rounded-xl text-sm hover:bg-amber-400 transition-colors cursor-pointer">
+                + Add Menu Item
+            </button>
+        </div>
+    </section>
+
+    <!-- Table Booking Section -->
+    <section id="booking" class="py-16 bg-gray-900 border-t border-b border-amber-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5">
+                    <span class="text-amber-400 font-bold text-xs uppercase tracking-widest bg-amber-500/10 px-3.5 py-1.5 rounded-full border border-amber-500/30">Dine-in Reservation</span>
+                    <h2 class="font-display text-4xl sm:text-5xl text-white tracking-wide mt-3 font-bold">RESERVE A TABLE AT KAMBIL</h2>
+                    <p class="text-gray-300 text-base mt-3 leading-relaxed font-light">
+                        Planning to visit with family or friends? Book your table in advance for a seamless 5-star dining experience at American Fried Chicken Kambil.
+                    </p>
+                    <div class="mt-6 space-y-3 text-sm text-gray-300">
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-check text-amber-400"></i> Instant Table Confirmation</div>
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-check text-amber-400"></i> Family & VIP Booths Available</div>
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-check text-amber-400"></i> Zero Reservation Fees</div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 bg-gray-950 p-8 rounded-3xl border border-amber-500/20 shadow-2xl">
+                    <form onsubmit="submitTableBooking(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">Full Name *</label>
+                                <input type="text" id="book-name" required placeholder="e.g., Abdul Rahim" class="w-full px-4 py-3 rounded-xl bg-gray-900 border border-gray-800 text-white text-sm focus:ring-2 focus:ring-amber-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">Phone Number *</label>
+                                <input type="tel" id="book-phone" required placeholder="90721XXXXX" class="w-full px-4 py-3 rounded-xl bg-gray-900 border border-gray-800 text-white text-sm focus:ring-2 focus:ring-amber-500">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">Date *</label>
+                                <input type="date" id="book-date" required class="w-full px-4 py-3 rounded-xl bg-gray-900 border border-gray-800 text-white text-sm focus:ring-2 focus:ring-amber-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">Time *</label>
+                                <input type="time" id="book-time" required class="w-full px-4 py-3 rounded-xl bg-gray-900 border border-gray-800 text-white text-sm focus:ring-2 focus:ring-amber-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">Guests *</label>
+                                <select id="book-guests" class="w-full px-4 py-3 rounded-xl bg-gray-900 border border-gray-800 text-white text-sm focus:ring-2 focus:ring-amber-500">
+                                    <option value="2 Guests">2 Guests (Couple)</option>
+                                    <option value="4 Guests">4 Guests (Family)</option>
+                                    <option value="6 Guests">6 Guests (Group)</option>
+                                    <option value="10+ Guests">10+ Guests (Party)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">Special Requests</label>
+                            <textarea id="book-notes" rows="2" placeholder="High chair, birthday celebration..." class="w-full px-4 py-3 rounded-xl bg-gray-900 border border-gray-800 text-white text-sm focus:ring-2 focus:ring-amber-500"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 text-gray-950 font-extrabold py-4 rounded-xl shadow-xl transition-all cursor-pointer text-base">
+                            Confirm Table Reservation
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Banner Section -->
+    <section id="reviews" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-gradient-to-r from-gray-900 to-gray-950 border border-amber-500/30 rounded-3xl p-8 sm:p-12 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-2xl">
+            <div class="text-center lg:text-left">
+                <div class="flex items-center justify-center lg:justify-start gap-2 text-amber-400 text-2xl mb-2">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <span class="text-white font-black ml-2">5.0 / 5.0</span>
+                </div>
+                <h3 class="font-display text-3xl sm:text-4xl tracking-wide font-bold">LOVED BY FOODIES IN KAMBIL</h3>
+                <p class="text-gray-300 mt-2 max-w-xl text-sm sm:text-base font-light">
+                    Rated 5.0 stars on Google Reviews! Thank you to our wonderful customers for supporting our fast food restaurant.
+                </p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3 shrink-0">
+                <a href="https://www.google.com/search?q=American+fried+chicken+kambil" target="_blank" rel="noopener noreferrer" class="bg-white text-gray-950 hover:bg-gray-100 font-extrabold px-6 py-4 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2.5">
+                    <i class="fa-brands fa-google text-red-600 text-lg"></i>
+                    <span>Write a Google Review</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location, Hours & Contact Section -->
+    <section id="contact" class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-amber-500/10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+            <div class="bg-gray-900 rounded-3xl p-8 shadow-xl border border-amber-500/20 flex flex-col justify-between">
+                <div>
+                    <span class="text-amber-400 font-bold text-xs uppercase tracking-widest bg-amber-500/10 px-3.5 py-1.5 rounded-full border border-amber-500/30">Visit Us Today</span>
+                    <h2 class="font-display text-4xl text-white tracking-wide mt-3 mb-6 font-bold">STORE DETAILS & HOURS</h2>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-400 border border-amber-500/30 flex items-center justify-center shrink-0 text-xl">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-base">Address</h4>
+                                <p class="text-gray-400 text-sm mt-0.5">Near Salafi Masjid, Kambil, Keralam 670601, India</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-400 border border-amber-500/30 flex items-center justify-center shrink-0 text-xl">
+                                <i class="fa-solid fa-phone-volume"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-base">Phone / Order Hotline</h4>
+                                <a href="tel:09072113450" class="text-amber-400 font-extrabold text-lg hover:underline mt-0.5 inline-block">090721 13450</a>
+                                <p class="text-gray-400 text-xs">Call for takeaway & home delivery</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center justify-center shrink-0 text-xl">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-base">Opening Hours</h4>
+                                <p class="text-emerald-400 font-semibold text-sm mt-0.5">Open Now • Closes at 12:00 AM (Midnight)</p>
+                                <p class="text-gray-400 text-xs">Monday – Sunday</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3 mt-8 pt-6 border-t border-gray-800">
+                    <a href="tel:09072113450" class="bg-red-700 hover:bg-red-600 text-white font-bold py-3.5 px-4 rounded-xl text-center text-sm transition-colors flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Call Shop</span>
+                    </a>
+                    <a href="https://wa.me/919072113450?text=Hello%20American%20Fried%20Chicken%20Kambil!%20I%20would%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 px-4 rounded-xl text-center text-sm transition-colors flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-gray-900 rounded-3xl overflow-hidden shadow-xl border border-amber-500/20 min-h-[380px] relative">
+                <iframe 
+                    title="American Fried Chicken Kambil Location"
+                    class="w-full h-full min-h-[380px] border-0 grayscale contrast-125"
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://maps.google.com/maps?q=Kambil,%20Kerala%20670601&t=&z=15&ie=UTF8&iwloc=&output=embed">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-gray-400 py-10 border-t border-amber-500/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+            <div class="flex items-center gap-3 text-white">
+                <div class="w-11 h-11 rounded-full shrink-0">
+                    <svg viewBox="0 0 200 200" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="100" cy="100" r="94" fill="#DC2626" stroke="#FACC15" stroke-width="8"/>
+                        <g fill="#FFFFFF">
+                            <path d="M84 36 C82 28, 90 25, 93 31 C96 23, 105 24, 105 32 C110 27, 117 32, 113 39 C117 41, 116 48, 110 49 L106 49 C104 42, 92 40, 84 36 Z"/>
+                            <path d="M85 38 C79 39, 75 43, 73 46 L81 48 C77 50, 74 54, 76 58 C78 61, 83 61, 86 58 C88 55, 88 51, 86 49 L92 48 Z"/>
+                            <path d="M92 46 C96 58, 92 68, 76 74 C56 82, 48 102, 58 122 C63 131, 71 136, 78 138 C68 128, 63 114, 67 99 C71 86, 84 79, 98 73 C106 69, 108 58, 104 46 Z"/>
+                            <path d="M104 52 C110 66, 110 84, 100 102 C95 111, 90 121, 92 132 C98 121, 105 109, 111 97 C115 89, 117 80, 116 71 C126 65, 142 66, 154 78 C164 88, 166 103, 161 116 C160 102, 152 90, 138 87 C148 96, 152 110, 147 124 C144 111, 135 101, 122 99 C131 108, 134 121, 128 133 C124 121, 116 112, 105 110 C112 100, 117 86, 116 72 C115 63, 110 55, 104 52 Z"/>
+                        </g>
+                        <text x="100" y="170" text-anchor="middle" fill="#FFFFFF" font-family="Georgia, 'Times New Roman', serif" font-weight="900" font-size="45" letter-spacing="2">AFC</text>
+                    </svg>
+                </div>
+                <span class="font-display text-2xl tracking-wide font-bold">AMERICAN FRIED CHICKEN</span>
+            </div>
+            <p class="text-center sm:text-right font-light">
+                Near Salafi Masjid, Kambil, Keralam 670601 • Tel: <a href="tel:09072113450" class="text-amber-400 hover:underline">090721 13450</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- CART & CHECKOUT MODAL (WhatsApp Order Only) -->
+    <div id="cart-modal" class="fixed inset-0 z-50 hidden items-center justify-end bg-black/80 backdrop-blur-sm transition-all">
+        <div class="bg-gray-900 border-l border-amber-500/40 w-full max-w-md h-full flex flex-col justify-between p-6 sm:p-8 shadow-2xl overflow-y-auto">
+            <div>
+                <div class="flex items-center justify-between pb-4 border-b border-gray-800">
+                    <h3 class="font-display text-2xl text-white tracking-wide font-bold">YOUR CART</h3>
+                    <button onclick="toggleCartModal()" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-gray-300 cursor-pointer">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <div id="cart-items-container" class="space-y-4 my-6">
+                    <!-- Cart items populated dynamically -->
+                </div>
+            </div>
+
+            <div id="cart-checkout-section" class="border-t border-gray-800 pt-6">
+                <div class="flex items-center justify-between text-lg font-bold text-white mb-4">
+                    <span>Total Amount:</span>
+                    <span id="cart-total-price" class="text-amber-400 font-display text-2xl">₹0</span>
+                </div>
+
+                <div class="space-y-3 mb-6">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Customer Name *</label>
+                        <input type="text" id="checkout-name" placeholder="Mohammed Faris" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-950 border border-gray-800 text-white text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Phone Number *</label>
+                        <input type="tel" id="checkout-phone" placeholder="90721XXXXX" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-950 border border-gray-800 text-white text-sm">
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Order Type *</label>
+                            <select id="checkout-type" onchange="toggleLocationField()" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-950 border border-gray-800 text-white text-sm">
+                                <option value="Delivery">Home Delivery</option>
+                                <option value="Takeaway">Takeaway Pickup</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Payment *</label>
+                            <select id="checkout-payment" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-950 border border-gray-800 text-white text-sm">
+                                <option value="COD">Cash on Delivery</option>
+                                <option value="UPI">UPI / Online</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="checkout-location-wrapper">
+                        <div class="flex items-center justify-between mb-1">
+                            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider">Delivery Location / Landmark *</label>
+                            <button type="button" onclick="detectCustomerLocation()" class="text-[11px] font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1 cursor-pointer">
+                                <i class="fa-solid fa-location-crosshairs"></i> Use Current GPS
+                            </button>
+                        </div>
+                        <textarea id="checkout-location" rows="2" placeholder="House/Shop name, Landmark, Kambil..." class="w-full px-3.5 py-2.5 rounded-xl bg-gray-950 border border-gray-800 text-white text-sm focus:ring-2 focus:ring-amber-500"></textarea>
+                    </div>
+                </div>
+
+                <div>
+                    <button onclick="checkoutWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold py-4 px-5 rounded-xl text-base transition-all flex items-center justify-center gap-2.5 cursor-pointer shadow-lg">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>Order on WhatsApp</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADD / EDIT MENU ITEM MODAL -->
+    <div id="menu-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-md p-4">
+        <div class="bg-gray-900 border border-amber-500/40 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl max-h-[92vh] overflow-y-auto">
+            <div class="flex items-center justify-between pb-4 border-b border-gray-800">
+                <h3 id="modal-title" class="font-display text-2xl text-white font-bold">ADD NEW MENU ITEM</h3>
+                <button onclick="closeModal()" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-gray-300 cursor-pointer">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="menu-form" onsubmit="saveMenuItem(event)" class="space-y-4 mt-5">
+                <input type="hidden" id="edit-item-id">
+                <div>
+                    <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">Item Name *</label>
+                    <input type="text" id="item-name" required placeholder="e.g., Crispy Chicken Burger" class="w-full px-4 py-3 rounded-xl bg-gray-950 border border-gray-800 text-white text-sm">
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">Category *</label>
+                        <select id="item-category" class="w-full px-4 py-3 rounded-xl bg-gray-950 border border-gray-800 text-white text-sm">
+                            <option value="Fried Chicken">Fried Chicken</option>
+                            <option value="Burgers">Burgers</option>
+                            <option value="Pizza">Pizza</option>
+                            <option value="Loaded Fries">Loaded Fries</option>
+                            <option value="Roll Zone">Roll Zone</option>
+                            <option value="Momos">Momos</option>
+                            <option value="Combos & Meals">Combos & Meals</option>
+                            <option value="Add-Ons & Drinks">Add-Ons & Drinks</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">Price (₹ INR) *</label>
+                        <input type="number" id="item-price" required min="1" step="1" placeholder="240" class="w-full px-4 py-3 rounded-xl bg-gray-950 border border-gray-800 text-white text-sm">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">Dish Photo (Upload from Gallery or Paste URL) *</label>
+                    <div class="space-y-2.5 bg-gray-950 p-3.5 rounded-2xl border border-gray-800">
+                        <div class="flex items-center gap-3">
+                            <img id="item-image-preview" src="https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?q=80&w=400&auto=format&fit=crop" alt="Preview" class="w-16 h-16 rounded-xl object-cover border border-amber-500/30 shrink-0">
+                            <div class="flex-1 space-y-2">
+                                <label class="w-full bg-gray-800 hover:bg-gray-700 text-amber-400 font-bold py-2 px-3 rounded-xl text-xs transition-colors flex items-center justify-center gap-2 cursor-pointer border border-amber-500/30">
+                                    <i class="fa-solid fa-camera"></i>
+                                    <span>Upload Photo from Device / Gallery</span>
+                                    <input type="file" id="item-image-file" accept="image/*" onchange="handleImageUpload(event)" class="hidden">
+                                </label>
+                                <input type="text" id="item-image" required oninput="updateImagePreview(this.value)" placeholder="Or paste image URL..." class="w-full px-3 py-2 rounded-xl bg-gray-900 border border-gray-800 text-white text-xs">
+                            </div>
+                        </div>
+                        <div class="pt-1">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-gray-400 block mb-1.5">Quick Photo Presets:</span>
+                            <div class="flex flex-wrap gap-1.5">
+                                <button type="button" onclick="selectPresetImage('https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?q=80&w=800&auto=format&fit=crop')" class="text-[11px] bg-gray-900 hover:bg-gray-800 text-gray-300 px-2.5 py-1 rounded-lg border border-gray-700 cursor-pointer">🍗 Fried Chicken</button>
+                                <button type="button" onclick="selectPresetImage('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=800&auto=format&fit=crop')" class="text-[11px] bg-gray-900 hover:bg-gray-800 text-gray-300 px-2.5 py-1 rounded-lg border border-gray-700 cursor-pointer">🍔 Burger</button>
+                                <button type="button" onclick="selectPresetImage('https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=800&auto=format&fit=crop')" class="text-[11px] bg-gray-900 hover:bg-gray-800 text-gray-300 px-2.5 py-1 rounded-lg border border-gray-700 cursor-pointer">🍕 Pizza</button>
+                                <button type="button" onclick="selectPresetImage('https://images.unsplash.com/photo-1585109649139-366815a0d713?q=80&w=800&auto=format&fit=crop')" class="text-[11px] bg-gray-900 hover:bg-gray-800 text-gray-300 px-2.5 py-1 rounded-lg border border-gray-700 cursor-pointer">🍟 Loaded Fries</button>
+                                <button type="button" onclick="selectPresetImage('https://images.unsplash.com/photo-1626700051175-6818013e1d4f?q=80&w=800&auto=format&fit=crop')" class="text-[11px] bg-gray-900 hover:bg-gray-800 text-gray-300 px-2.5 py-1 rounded-lg border border-gray-700 cursor-pointer">🌯 Wrap</button>
+                                <button type="button" onclick="selectPresetImage('https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?q=80&w=800&auto=format&fit=crop')" class="text-[11px] bg-gray-900 hover:bg-gray-800 text-gray-300 px-2.5 py-1 rounded-lg border border-gray-700 cursor-pointer">🥟 Momos</button>
+                                <button type="button" onclick="selectPresetImage('https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=800&auto=format&fit=crop')" class="text-[11px] bg-gray-900 hover:bg-gray-800 text-gray-300 px-2.5 py-1 rounded-lg border border-gray-700 cursor-pointer">🥤 Drink</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">Special Badge</label>
+                    <input type="text" id="item-tag" placeholder="Bestseller, Spicy, Chef's Special" class="w-full px-4 py-3 rounded-xl bg-gray-950 border border-gray-800 text-white text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">Description</label>
+                    <textarea id="item-desc" rows="2" placeholder="Short tasty description..." class="w-full px-4 py-3 rounded-xl bg-gray-950 border border-gray-800 text-white text-sm"></textarea>
+                </div>
+                <div class="flex items-center justify-end gap-3 pt-4 border-t border-gray-800">
+                    <button type="button" onclick="closeModal()" class="px-5 py-3 rounded-xl border border-gray-700 text-gray-300 text-sm cursor-pointer">Cancel</button>
+                    <button type="submit" class="px-6 py-3 rounded-xl bg-amber-500 text-gray-950 font-extrabold text-sm shadow-xl cursor-pointer">Save Item</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ADD MANUAL SALES MODAL -->
+    <div id="add-sales-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/85 backdrop-blur-md p-4">
+        <div class="bg-gray-900 border border-amber-500/50 rounded-3xl max-w-sm w-full p-6 sm:p-7 shadow-2xl">
+            <div class="flex items-center justify-between pb-3 border-b border-gray-800 mb-4">
+                <h3 class="font-display text-xl text-white font-bold flex items-center gap-2">
+                    <i class="fa-solid fa-indian-rupee-sign text-amber-400"></i> ADD TOTAL SALES
+                </h3>
+                <button onclick="closeAddSalesModal()" class="w-8 h-8 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-gray-300 cursor-pointer">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <form onsubmit="submitManualSales(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">Sales Amount (₹ INR) *</label>
+                    <input type="number" id="manual-sales-amount" required min="1" step="any" placeholder="e.g., 1500" class="w-full px-4 py-3 rounded-xl bg-gray-950 border border-gray-800 text-white text-base font-bold focus:ring-2 focus:ring-amber-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">Note / Source (Optional)</label>
+                    <input type="text" id="manual-sales-note" placeholder="e.g., Direct counter / UPI" class="w-full px-4 py-2.5 rounded-xl bg-gray-950 border border-gray-800 text-white text-sm focus:ring-2 focus:ring-amber-500">
+                </div>
+                <div class="flex gap-3 pt-2">
+                    <button type="button" onclick="closeAddSalesModal()" class="flex-1 py-3 rounded-xl border border-gray-700 text-gray-300 text-sm font-semibold hover:bg-gray-800 cursor-pointer">Cancel</button>
+                    <button type="submit" class="flex-1 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-gray-950 font-extrabold text-sm shadow-lg cursor-pointer">+ Add Sales</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ADMIN PASSWORD PROTECTION MODAL -->
+    <div id="admin-auth-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/85 backdrop-blur-md p-4">
+        <div class="bg-gray-900 border border-amber-500/40 rounded-3xl max-w-sm w-full p-6 sm:p-8 shadow-2xl text-center">
+            <div class="w-14 h-14 rounded-2xl bg-amber-500/15 text-amber-400 border border-amber-500/30 flex items-center justify-center mx-auto mb-4 text-2xl">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+            <h3 class="font-display text-2xl text-white font-bold">ADMIN ACCESS</h3>
+            <p class="text-xs text-gray-400 mt-1 mb-5">Enter the 6-digit security PIN to open Restaurant Dashboard.</p>
+            <form onsubmit="verifyAdminPassword(event)" class="space-y-4">
+                <input type="password" id="admin-password-input" inputmode="numeric" maxlength="10" required placeholder="Enter PIN" class="w-full px-4 py-3.5 rounded-xl bg-gray-950 border border-gray-800 text-white text-center text-lg font-mono tracking-widest focus:outline-none focus:ring-2 focus:ring-amber-500">
+                <div class="grid grid-cols-2 gap-3 pt-1">
+                    <button type="button" onclick="closeAdminAuthModal()" class="py-3 rounded-xl border border-gray-700 text-gray-300 text-sm font-semibold hover:bg-gray-800 cursor-pointer">Cancel</button>
+                    <button type="submit" class="py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-gray-950 font-extrabold text-sm shadow-lg cursor-pointer">Unlock</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- RESTAURANT OWNER ADMIN DASHBOARD MODAL -->
+    <div id="admin-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/85 backdrop-blur-md p-4">
+        <div class="bg-gray-900 border border-amber-500/50 rounded-3xl max-w-4xl w-full p-6 sm:p-8 shadow-2xl max-h-[92vh] overflow-y-auto">
+            <div class="flex items-center justify-between pb-4 border-b border-gray-800 mb-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center border border-amber-500/40 font-bold"><i class="fa-solid fa-gauge-high"></i></div>
+                    <div>
+                        <div class="flex items-center gap-2.5 flex-wrap">
+                            <h3 class="font-display text-2xl text-white font-bold">RESTAURANT ADMIN DASHBOARD</h3>
+                            <span class="inline-flex items-center gap-1.5 bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 text-[10px] font-extrabold uppercase tracking-widest px-2.5 py-0.5 rounded-full">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> LIVE SYNC
+                            </span>
+                            <span id="admin-live-clock" class="text-[11px] font-mono text-amber-400 bg-gray-950 px-2.5 py-0.5 rounded-lg border border-gray-800"></span>
+                        </div>
+                        <p class="text-xs text-gray-400">Real-time Order Status & Kambil Store Management</p>
+                    </div>
+                </div>
+                <button onclick="closeAdminModal()" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-gray-300 cursor-pointer">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+                <div class="bg-gray-950 p-4 rounded-2xl border border-amber-500/30 flex flex-col justify-between">
+                    <div class="flex items-center justify-between gap-1">
+                        <span class="text-xs text-gray-400 uppercase tracking-wider">Total Sales</span>
+                        <button onclick="openAddSalesModal()" class="text-[11px] bg-amber-500 hover:bg-amber-400 text-gray-950 font-extrabold px-2 py-0.5 rounded-lg cursor-pointer transition-colors" title="Add Sales Amount">+ Add</button>
+                    </div>
+                    <h4 id="admin-total-sales" class="text-2xl font-bold text-amber-400 mt-2">₹0</h4>
+                </div>
+                <div class="bg-gray-950 p-4 rounded-2xl border border-gray-800">
+                    <span class="text-xs text-gray-400 uppercase tracking-wider">Today's Orders</span>
+                    <h4 id="admin-today-orders" class="text-2xl font-bold text-white mt-2">0</h4>
+                </div>
+                <div class="bg-gray-950 p-4 rounded-2xl border border-gray-800">
+                    <span class="text-xs text-gray-400 uppercase tracking-wider">Active Bookings</span>
+                    <h4 id="admin-active-bookings" class="text-2xl font-bold text-emerald-400 mt-2">0</h4>
+                </div>
+                <div class="bg-gray-950 p-4 rounded-2xl border border-gray-800">
+                    <span class="text-xs text-gray-400 uppercase tracking-wider">Menu Items</span>
+                    <h4 id="admin-menu-count" class="text-2xl font-bold text-white mt-2">0</h4>
+                </div>
+            </div>
+
+            <!-- Admin Tabs -->
+            <div class="flex gap-3 mb-6 border-b border-gray-800 pb-3">
+                <button onclick="switchAdminTab('orders')" id="tab-btn-orders" class="admin-tab-btn active px-4 py-2 rounded-xl text-sm font-bold bg-amber-500 text-gray-950 cursor-pointer">Live Orders</button>
+                <button onclick="switchAdminTab('bookings')" id="tab-btn-bookings" class="admin-tab-btn px-4 py-2 rounded-xl text-sm font-semibold text-gray-300 hover:bg-gray-800 cursor-pointer">Table Reservations</button>
+                <button onclick="switchAdminTab('menu')" id="tab-btn-menu" class="admin-tab-btn px-4 py-2 rounded-xl text-sm font-semibold text-gray-300 hover:bg-gray-800 cursor-pointer">Menu Manager</button>
+            </div>
+
+            <!-- Tab Content: Orders -->
+            <div id="admin-tab-orders" class="space-y-4">
+                <div class="flex items-center justify-between">
+                    <h4 class="font-bold text-white">Recent Customer Orders</h4>
+                    <button onclick="clearAdminOrders()" class="text-xs text-red-400 hover:underline">Clear Orders</button>
+                </div>
+                <div id="admin-orders-list" class="space-y-3">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+
+            <!-- Tab Content: Bookings -->
+            <div id="admin-tab-bookings" class="space-y-4 hidden">
+                <h4 class="font-bold text-white">Table Booking Reservations</h4>
+                <div id="admin-bookings-list" class="space-y-3">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+
+            <!-- Tab Content: Menu Manager -->
+            <div id="admin-tab-menu" class="space-y-4 hidden">
+                <div class="flex items-center justify-between">
+                    <h4 class="font-bold text-white">Manage Shop Menu Items</h4>
+                    <button onclick="openAddModal(); closeAdminModal();" class="bg-amber-500 text-gray-950 font-bold px-3 py-1.5 rounded-lg text-xs">＋ Add New Dish</button>
+                </div>
+                <div id="admin-menu-list" class="space-y-2">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Application Logic (Self-Contained) -->
+    <script>
+        const defaultMenuItems = [
+            // FRIED CHICKEN (2 Pcs to 22 Pcs & Poppy Chick)
+            {
+                id: 1,
+                name: "2 Pcs Chicken Combo",
+                category: "Fried Chicken",
+                price: 199,
+                image: "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?q=80&w=800&auto=format&fit=crop",
+                tag: "Offer ₹199",
+                desc: "2 Pcs Crispy Fried Chicken, 1 Bun, 1 Mayonnaise, French Fries & Ketchup."
+            },
+            {
+                id: 2,
+                name: "3 Pcs Chicken Combo",
+                category: "Fried Chicken",
+                price: 299,
+                image: "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?q=80&w=800&auto=format&fit=crop",
+                tag: "Offer ₹299",
+                desc: "3 Pcs Crispy Fried Chicken, 1 Bun, 1 Mayonnaise, French Fries & Ketchup."
+            },
+            {
+                id: 3,
+                name: "4 Pcs Chicken Combo",
+                category: "Fried Chicken",
+                price: 399,
+                image: "https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=800&auto=format&fit=crop",
+                tag: "Offer ₹399",
+                desc: "4 Pcs Crispy Fried Chicken, 2 Buns, 2 Mayonnaise, French Fries & Ketchup."
+            },
+            {
+                id: 4,
+                name: "6 Pcs Chicken Bucket",
+                category: "Fried Chicken",
+                price: 569,
+                image: "https://images.unsplash.com/photo-1569058242253-92a9c755aaec?q=80&w=800&auto=format&fit=crop",
+                tag: "Offer ₹569",
+                desc: "6 Pcs Crispy Fried Chicken, 3 Buns, 3 Mayonnaise, French Fries & Coleslaws."
+            },
+            {
+                id: 5,
+                name: "8 Pcs Chicken Bucket",
+                category: "Fried Chicken",
+                price: 749,
+                image: "https://images.unsplash.com/photo-1569058242253-92a9c755aaec?q=80&w=800&auto=format&fit=crop",
+                tag: "Offer ₹749",
+                desc: "8 Pcs Crispy Fried Chicken, 4 Buns, 3 Mayonnaise, French Fries, Ketchup & 1 Coleslaw."
+            },
+            {
+                id: 6,
+                name: "10 Pcs Chicken Bucket",
+                category: "Fried Chicken",
+                price: 999,
+                image: "https://images.unsplash.com/photo-1569058242253-92a9c755aaec?q=80&w=800&auto=format&fit=crop",
+                tag: "Family Pack",
+                desc: "10 Pcs Crispy Fried Chicken, 4 Buns, 4 Mayonnaise, French Fries, Ketchup & 1 Coleslaw."
+            },
+            {
+                id: 7,
+                name: "12 Pcs Chicken Bucket",
+                category: "Fried Chicken",
+                price: 1149,
+                image: "https://images.unsplash.com/photo-1569058242253-92a9c755aaec?q=80&w=800&auto=format&fit=crop",
+                tag: "With 750ml Drink",
+                desc: "12 Pcs Chicken, 5 Buns, 5 Mayonnaise, French Fries, 2 Coleslaws & 750 ml. Drink."
+            },
+            {
+                id: 8,
+                name: "14 Pcs Chicken Bucket",
+                category: "Fried Chicken",
+                price: 1299,
+                image: "https://images.unsplash.com/photo-1569058242253-92a9c755aaec?q=80&w=800&auto=format&fit=crop",
+                tag: "With 1.25L Drink",
+                desc: "14 Pcs Chicken, 6 Buns, 6 Mayonnaise, French Fries, 2 Coleslaws & 1.250 ltr. Drink."
+            },
+            {
+                id: 9,
+                name: "16 Pcs Chicken Bucket",
+                category: "Fried Chicken",
+                price: 1549,
+                image: "https://images.unsplash.com/photo-1569058242253-92a9c755aaec?q=80&w=800&auto=format&fit=crop",
+                tag: "With 2.25L Drink",
+                desc: "16 Pcs Chicken, 7 Buns, 7 Mayonnaise, French Fries, 3 Coleslaws & 2.250 ltr. Drink."
+            },
+            {
+                id: 10,
+                name: "22 Pcs Chicken Bucket",
+                category: "Fried Chicken",
+                price: 1989,
+                image: "https://images.unsplash.com/photo-1569058242253-92a9c755aaec?q=80&w=800&auto=format&fit=crop",
+                tag: "Mega Party Pack",
+                desc: "22 Pcs Chicken, 8 Buns, 8 Mayonnaise, French Fries, 3 Coleslaws & 2.250 ltr. Drink."
+            },
+            {
+                id: 11,
+                name: "Poppy Chick (Small)",
+                category: "Fried Chicken",
+                price: 99,
+                image: "https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=800&auto=format&fit=crop",
+                tag: "Small",
+                desc: "Crunchy bite-sized AFC Poppy Chick popcorn chicken."
+            },
+            {
+                id: 12,
+                name: "Poppy Chick (Large)",
+                category: "Fried Chicken",
+                price: 159,
+                image: "https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=800&auto=format&fit=crop",
+                tag: "Large",
+                desc: "Large bucket of crunchy AFC Poppy Chick popcorn chicken."
+            },
+
+            // LOADED FRIES
+            {
+                id: 21,
+                name: "Spice Kick Loaded Fries (Medium)",
+                category: "Loaded Fries",
+                price: 189,
+                image: "https://images.unsplash.com/photo-1585109649139-366815a0d713?q=80&w=800&auto=format&fit=crop",
+                tag: "Medium • Spicy",
+                desc: "Medium AFC cup loaded with crispy fries, melted cheese sauce, spicy kick drizzle & herbs."
+            },
+            {
+                id: 22,
+                name: "Spice Kick Loaded Fries (Large)",
+                category: "Loaded Fries",
+                price: 249,
+                image: "https://images.unsplash.com/photo-1585109649139-366815a0d713?q=80&w=800&auto=format&fit=crop",
+                tag: "Large • Spicy",
+                desc: "Large cup of golden fries smothered in melted cheese, spicy red sauce & herbs."
+            },
+            {
+                id: 23,
+                name: "Melt Prime Loaded Fries (Medium)",
+                category: "Loaded Fries",
+                price: 179,
+                image: "https://images.unsplash.com/photo-1518013431117-eb1465fa5752?q=80&w=800&auto=format&fit=crop",
+                tag: "Medium • Bestseller",
+                desc: "Medium tray of crispy fries topped with fried chicken strips, creamy cheese melt & jalapenos."
+            },
+            {
+                id: 24,
+                name: "Melt Prime Loaded Fries (Large)",
+                category: "Loaded Fries",
+                price: 239,
+                image: "https://images.unsplash.com/photo-1518013431117-eb1465fa5752?q=80&w=800&auto=format&fit=crop",
+                tag: "Large • Bestseller",
+                desc: "Large tray of crispy fries topped with crunchy chicken chunks, creamy melt sauce & jalapenos."
+            },
+            {
+                id: 25,
+                name: "French Fries",
+                category: "Loaded Fries",
+                price: 69,
+                image: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?q=80&w=800&auto=format&fit=crop",
+                tag: "Classic",
+                desc: "Hot & crispy AFC signature salted French fries."
+            },
+
+            // ROLL ZONE
+            {
+                id: 31,
+                name: "OG Wrap",
+                category: "Roll Zone",
+                price: 69,
+                image: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?q=80&w=800&auto=format&fit=crop",
+                tag: "Value Bite",
+                desc: "Original AFC grilled tortilla wrap stuffed with crispy chicken, veggies & signature sauce."
+            },
+            {
+                id: 32,
+                name: "Crispy Twister",
+                category: "Roll Zone",
+                price: 109,
+                image: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?q=80&w=800&auto=format&fit=crop",
+                tag: "Bestseller",
+                desc: "Extra crunchy fried chicken strips wrapped with fresh lettuce, tomatoes & pepper mayo."
+            },
+            {
+                id: 33,
+                name: "Crispy Twister Meal",
+                category: "Roll Zone",
+                price: 149,
+                image: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?q=80&w=800&auto=format&fit=crop",
+                tag: "Combo Meal",
+                desc: "1 Crispy Twister roll served with a portion of golden French fries."
+            },
+
+            // MOMOS
+            {
+                id: 41,
+                name: "Classic Momos",
+                category: "Momos",
+                price: 99,
+                image: "https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?q=80&w=800&auto=format&fit=crop",
+                tag: "7 Pcs",
+                desc: "7 Pc. juicy chicken momos served with 1 creamy mayonnaise dip."
+            },
+            {
+                id: 42,
+                name: "Periperi Momos",
+                category: "Momos",
+                price: 140,
+                image: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?q=80&w=800&auto=format&fit=crop",
+                tag: "7 Pcs • Spicy",
+                desc: "7 Pc. spicy peri-peri seasoned momos served with 1 creamy mayonnaise dip."
+            },
+
+            // COMBOS, MEALS & PARTY BOX
+            {
+                id: 51,
+                name: "Chicken Nuggets Meal",
+                category: "Combos & Meals",
+                price: 269,
+                image: "https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=800&auto=format&fit=crop",
+                tag: "Combo",
+                desc: "12 Pcs Crispy Chicken Nuggets + Pepsi (250 ml.) + French Fries."
+            },
+            {
+                id: 52,
+                name: "Chicken Strip Meal",
+                category: "Combos & Meals",
+                price: 299,
+                image: "https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=800&auto=format&fit=crop",
+                tag: "10 Pcs Strips",
+                desc: "10 Pcs. Crispy Strips Chicken + French Fries & Ketchup."
+            },
+            {
+                id: 53,
+                name: "Power Crunch Combo",
+                category: "Combos & Meals",
+                price: 229,
+                image: "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?q=80&w=800&auto=format&fit=crop",
+                tag: "Bestseller",
+                desc: "1 Crispy Burger + 1 Pc. Fried Chicken + French Fries + Ketchup."
+            },
+            {
+                id: 54,
+                name: "Besties Meal",
+                category: "Combos & Meals",
+                price: 339,
+                image: "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?q=80&w=800&auto=format&fit=crop",
+                tag: "For Two",
+                desc: "1 Pc. Fried Chicken + 6 Pc. Strips Chicken + French Fries + Ketchup."
+            },
+            {
+                id: 55,
+                name: "Momos Meal",
+                category: "Combos & Meals",
+                price: 269,
+                image: "https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?q=80&w=800&auto=format&fit=crop",
+                tag: "15 Pcs Momos",
+                desc: "15 Pc. Momos + 1 Mayonnaise + French Fries."
+            },
+            {
+                id: 56,
+                name: "AFC Party Box (Per Box)",
+                category: "Combos & Meals",
+                price: 99,
+                image: "https://images.unsplash.com/photo-1569058242253-92a9c755aaec?q=80&w=800&auto=format&fit=crop",
+                tag: "Min. 150 Boxes",
+                desc: "1 Pc. Chicken, Ketchup, Bun 1 Pc. (Minimum 150 Box Required for event orders)."
+            },
+
+            // BURGERS
+            {
+                id: 101,
+                name: "Kids Pop Burger",
+                category: "Burgers",
+                price: 79,
+                image: "https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=800&auto=format&fit=crop",
+                tag: "Kids Special",
+                desc: "Bite-sized crispy chicken pops layered with fresh lettuce and creamy mayo in a soft bun."
+            },
+            {
+                id: 102,
+                name: "Kids Burger",
+                category: "Burgers",
+                price: 79,
+                image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=800&auto=format&fit=crop",
+                tag: "",
+                desc: "Mildly seasoned crispy fried chicken patty with fresh veggies and mild mayo."
+            },
+            {
+                id: 103,
+                name: "Mini Burger",
+                category: "Burgers",
+                price: 49,
+                image: "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?q=80&w=800&auto=format&fit=crop",
+                tag: "Budget Bite",
+                desc: "Pocket-friendly mini crispy chicken burger packed with signature AFC sauce."
+            },
+            {
+                id: 104,
+                name: "Spicy Crispy Burger",
+                category: "Burgers",
+                price: 119,
+                image: "https://images.unsplash.com/photo-1606755962773-d324e0a13086?q=80&w=800&auto=format&fit=crop",
+                tag: "Spicy",
+                desc: "Fiery crunchy fried chicken fillet topped with spicy mayo and crisp iceberg lettuce."
+            },
+            {
+                id: 105,
+                name: "Chicken Cheese Burger",
+                category: "Burgers",
+                price: 139,
+                image: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?q=80&w=800&auto=format&fit=crop",
+                tag: "Cheesy",
+                desc: "Golden fried chicken patty loaded with melted cheddar cheese slice and creamy sauce."
+            },
+            {
+                id: 106,
+                name: "Crispy Double Burger",
+                category: "Burgers",
+                price: 169,
+                image: "https://images.unsplash.com/photo-1553979459-d2229ba7433b?q=80&w=800&auto=format&fit=crop",
+                tag: "Bestseller",
+                desc: "Double stacked extra-crispy chicken fillets with cheese, fresh veggies, and signature dip."
+            },
+            {
+                id: 107,
+                name: "Chilli Chicken Burger",
+                category: "Burgers",
+                price: 139,
+                image: "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?q=80&w=800&auto=format&fit=crop",
+                tag: "Hot & Tangy",
+                desc: "Crispy chicken patty tossed in bold chilli glaze with jalapenos and lettuce."
+            },
+            {
+                id: 108,
+                name: "Crazy Beef Burger",
+                category: "Burgers",
+                price: 129,
+                image: "https://images.unsplash.com/photo-1565299507177-b0ac66763828?q=80&w=800&auto=format&fit=crop",
+                tag: "Chef's Special",
+                desc: "Juicy grilled beef patty layered with cheese, caramelized onions, tomatoes & smoky sauce."
+            },
+            {
+                id: 109,
+                name: "Veg. Burger",
+                category: "Burgers",
+                price: 99,
+                image: "https://images.unsplash.com/photo-1520072959219-c595dc870360?q=80&w=800&auto=format&fit=crop",
+                tag: "Veg",
+                desc: "Crispy golden vegetable patty topped with fresh tomatoes, lettuce, and tangy mayo."
+            },
+            {
+                id: 110,
+                name: "Double Veg. Burger",
+                category: "Burgers",
+                price: 149,
+                image: "https://images.unsplash.com/photo-1585238342024-78d387f4a707?q=80&w=800&auto=format&fit=crop",
+                tag: "Veg Feast",
+                desc: "Two crunchy veg patties stacked with cheese, crisp lettuce, and creamy herb dressing."
+            },
+            {
+                id: 111,
+                name: "Chicken Momos Burger",
+                category: "Burgers",
+                price: 139,
+                image: "https://images.unsplash.com/photo-1615297928064-24977384d0da?q=80&w=800&auto=format&fit=crop",
+                tag: "Fusion Hit",
+                desc: "Crispy fried chicken momos stuffed inside a toasted burger bun with spicy sauce."
+            },
+
+            // PIZZAS
+            {
+                id: 201,
+                name: "Tandoor Veg. Pizza (Medium)",
+                category: "Pizza",
+                price: 280,
+                image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=800&auto=format&fit=crop",
+                tag: "Medium • Veg",
+                desc: "Paneer, onion, capsicum, tomato, sauce & cheese."
+            },
+            {
+                id: 202,
+                name: "Tandoor Veg. Pizza (Large)",
+                category: "Pizza",
+                price: 365,
+                image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=800&auto=format&fit=crop",
+                tag: "Large • Veg",
+                desc: "Large size loaded with paneer, onion, capsicum, tomato, sauce & cheese."
+            },
+            {
+                id: 203,
+                name: "Margherita Pizza (Medium)",
+                category: "Pizza",
+                price: 285,
+                image: "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?q=80&w=800&auto=format&fit=crop",
+                tag: "Medium • Classic",
+                desc: "Classic cheese & signature tomato pizza sauce."
+            },
+            {
+                id: 204,
+                name: "Margherita Pizza (Large)",
+                category: "Pizza",
+                price: 389,
+                image: "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?q=80&w=800&auto=format&fit=crop",
+                tag: "Large • Classic",
+                desc: "Large Margherita loaded with extra mozzarella cheese & sauce."
+            },
+            {
+                id: 205,
+                name: "BBQ Chicken Pizza (Medium)",
+                category: "Pizza",
+                price: 349,
+                image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=800&auto=format&fit=crop",
+                tag: "Medium • Popular",
+                desc: "BBQ chicken, onion, capsicum, sauce & cheese."
+            },
+            {
+                id: 206,
+                name: "BBQ Chicken Pizza (Large)",
+                category: "Pizza",
+                price: 489,
+                image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=800&auto=format&fit=crop",
+                tag: "Large • Bestseller",
+                desc: "Large crust loaded with BBQ chicken, onion, capsicum, sauce & cheese."
+            },
+            {
+                id: 207,
+                name: "Crispy Chicken Pizza (Medium)",
+                category: "Pizza",
+                price: 339,
+                image: "https://images.unsplash.com/photo-1628840042765-356cda07504e?q=80&w=800&auto=format&fit=crop",
+                tag: "Medium • Crunchy",
+                desc: "Crispy fried chicken, onion, capsicum, sauce & cheese."
+            },
+            {
+                id: 208,
+                name: "Crispy Chicken Pizza (Large)",
+                category: "Pizza",
+                price: 479,
+                image: "https://images.unsplash.com/photo-1628840042765-356cda07504e?q=80&w=800&auto=format&fit=crop",
+                tag: "Large • Crunchy",
+                desc: "Large pizza topped with crispy fried chicken, onion, capsicum, sauce & cheese."
+            },
+            {
+                id: 209,
+                name: "Farm Fresh Pizza (Medium)",
+                category: "Pizza",
+                price: 299,
+                image: "https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?q=80&w=800&auto=format&fit=crop",
+                tag: "Medium • Veg",
+                desc: "Onion, capsicum, mushroom, tomato, sauce & cheese."
+            },
+            {
+                id: 210,
+                name: "Farm Fresh Pizza (Large)",
+                category: "Pizza",
+                price: 399,
+                image: "https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?q=80&w=800&auto=format&fit=crop",
+                tag: "Large • Veg",
+                desc: "Large Farm Fresh with onion, capsicum, mushroom, tomato, sauce & cheese."
+            },
+            {
+                id: 211,
+                name: "Tandoori Chicken Pizza (Medium)",
+                category: "Pizza",
+                price: 329,
+                image: "https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?q=80&w=800&auto=format&fit=crop",
+                tag: "Medium • Spicy",
+                desc: "Spiced tandoori chicken, onion, capsicum, sauce & cheese."
+            },
+            {
+                id: 212,
+                name: "Tandoori Chicken Pizza (Large)",
+                category: "Pizza",
+                price: 469,
+                image: "https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?q=80&w=800&auto=format&fit=crop",
+                tag: "Large • Spicy",
+                desc: "Large Tandoori Chicken pizza with onion, capsicum, sauce & cheese."
+            },
+
+            // ADD-ONS & DRINKS
+            {
+                id: 301,
+                name: "Add-On Combo (1.25 Ltr Pepsi)",
+                category: "Add-Ons & Drinks",
+                price: 163,
+                image: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=800&auto=format&fit=crop",
+                tag: "Value Add-On",
+                desc: "Pepsi 1.25 Ltr + French Fries + 5 Buns + Coleslaw."
+            },
+            {
+                id: 302,
+                name: "Add-On Combo (750 ml Pepsi)",
+                category: "Add-Ons & Drinks",
+                price: 137,
+                image: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=800&auto=format&fit=crop",
+                tag: "Value Add-On",
+                desc: "Pepsi 750 ml + French Fries + 4 Buns + Coleslaw."
+            },
+            {
+                id: 303,
+                name: "Choice Chicken Piece",
+                category: "Add-Ons & Drinks",
+                price: 110,
+                image: "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?q=80&w=800&auto=format&fit=crop",
+                tag: "Add-On",
+                desc: "1 Choice piece of hot & crispy AFC fried chicken."
+            },
+            {
+                id: 304,
+                name: "One Piece Chicken",
+                category: "Add-Ons & Drinks",
+                price: 99,
+                image: "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?q=80&w=800&auto=format&fit=crop",
+                tag: "Add-On",
+                desc: "1 Piece signature AFC crispy fried chicken."
+            },
+            {
+                id: 305,
+                name: "Extra Cheese (Pizza Add-On)",
+                category: "Add-Ons & Drinks",
+                price: 69,
+                image: "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?q=80&w=800&auto=format&fit=crop",
+                tag: "Pizza Topping",
+                desc: "Extra mozzarella cheese topping for pizzas."
+            },
+            {
+                id: 306,
+                name: "Extra Cheese Slice",
+                category: "Add-Ons & Drinks",
+                price: 20,
+                image: "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?q=80&w=800&auto=format&fit=crop",
+                tag: "Add-On",
+                desc: "Extra cheese slice add-on."
+            },
+            {
+                id: 307,
+                name: "Coleslaw",
+                category: "Add-Ons & Drinks",
+                price: 30,
+                image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=800&auto=format&fit=crop",
+                tag: "Side",
+                desc: "Fresh creamy AFC coleslaw salad cup."
+            },
+            {
+                id: 308,
+                name: "Mayonnaise",
+                category: "Add-Ons & Drinks",
+                price: 20,
+                image: "https://images.unsplash.com/photo-1585238342024-78d387f4a707?q=80&w=800&auto=format&fit=crop",
+                tag: "Dip",
+                desc: "Creamy AFC signature mayonnaise dip cup."
+            },
+            {
+                id: 309,
+                name: "Garlic Paste",
+                category: "Add-Ons & Drinks",
+                price: 20,
+                image: "https://images.unsplash.com/photo-1585238342024-78d387f4a707?q=80&w=800&auto=format&fit=crop",
+                tag: "Dip",
+                desc: "Rich garlic paste dip cup."
+            },
+            {
+                id: 310,
+                name: "Bun",
+                category: "Add-Ons & Drinks",
+                price: 10,
+                image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=800&auto=format&fit=crop",
+                tag: "Add-On",
+                desc: "Soft freshly baked burger bun."
+            },
+            {
+                id: 311,
+                name: "Kubhoos",
+                category: "Add-Ons & Drinks",
+                price: 10,
+                image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=800&auto=format&fit=crop",
+                tag: "Add-On",
+                desc: "Soft Arabic kubhoos bread."
+            },
+            {
+                id: 312,
+                name: "Ketchup",
+                category: "Add-Ons & Drinks",
+                price: 2,
+                image: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?q=80&w=800&auto=format&fit=crop",
+                tag: "Sachet",
+                desc: "Tomato ketchup sachet."
+            },
+            {
+                id: 313,
+                name: "Pepsi / 7Up / Dew / Mirinda (250 ml)",
+                category: "Add-Ons & Drinks",
+                price: 20,
+                image: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=800&auto=format&fit=crop",
+                tag: "250 ml",
+                desc: "Chilled 250 ml soft drink (Pepsi, 7Up, Mountain Dew, or Mirinda)."
+            },
+            {
+                id: 314,
+                name: "Pepsi / 7Up / Dew / Mirinda (750 ml)",
+                category: "Add-Ons & Drinks",
+                price: 40,
+                image: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=800&auto=format&fit=crop",
+                tag: "750 ml",
+                desc: "Chilled 750 ml soft drink bottle."
+            },
+            {
+                id: 315,
+                name: "Pepsi / 7Up / Dew / Mirinda (1.25 Ltr)",
+                category: "Add-Ons & Drinks",
+                price: 65,
+                image: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=800&auto=format&fit=crop",
+                tag: "1.25 Ltr",
+                desc: "Chilled 1.25 Ltr family soft drink bottle."
+            },
+            {
+                id: 316,
+                name: "Pepsi / 7Up / Dew / Mirinda (2.25 Ltr)",
+                category: "Add-Ons & Drinks",
+                price: 99,
+                image: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=800&auto=format&fit=crop",
+                tag: "2.25 Ltr",
+                desc: "Chilled 2.25 Ltr party soft drink bottle."
+            }
+        ];
+
+        let menuItems = [];
+        let cart = [];
+        let orders = [];
+        let bookings = [];
+        let manualSales = 0;
+        let currentCategory = 'All';
+        let manageMode = false;
+        let currentLang = 'EN';
+        let trackingInterval = null;
+        let adminLiveTimer = null;
+
+        function loadFromStorage() {
+            try {
+                const savedMenu = localStorage.getItem('afc_kambil_menu_official_v2');
+                menuItems = savedMenu ? JSON.parse(savedMenu) : [...defaultMenuItems];
+
+                if (!localStorage.getItem('afc_kambil_clean_v1')) {
+                    localStorage.removeItem('afc_kambil_orders');
+                    localStorage.removeItem('afc_kambil_bookings');
+                    localStorage.removeItem('afc_kambil_manual_sales');
+                    localStorage.setItem('afc_kambil_clean_v1', 'true');
+                }
+
+                const savedOrders = localStorage.getItem('afc_kambil_orders');
+                orders = savedOrders ? JSON.parse(savedOrders) : [];
+
+                const savedBookings = localStorage.getItem('afc_kambil_bookings');
+                bookings = savedBookings ? JSON.parse(savedBookings) : [];
+
+                const savedSales = localStorage.getItem('afc_kambil_manual_sales');
+                manualSales = savedSales ? parseFloat(savedSales) || 0 : 0;
+            } catch (e) {
+                menuItems = [...defaultMenuItems];
+                orders = [];
+                bookings = [];
+                manualSales = 0;
+            }
+        }
+
+        function saveToStorage() {
+            try {
+                localStorage.setItem('afc_kambil_menu_official_v2', JSON.stringify(menuItems));
+                localStorage.setItem('afc_kambil_orders', JSON.stringify(orders));
+                localStorage.setItem('afc_kambil_bookings', JSON.stringify(bookings));
+                localStorage.setItem('afc_kambil_manual_sales', String(manualSales));
+            } catch (e) {}
+        }
+
+        window.addEventListener('storage', (event) => {
+            if (
+                event.key === 'afc_kambil_orders' ||
+                event.key === 'afc_kambil_bookings' ||
+                event.key === 'afc_kambil_menu_official_v2' ||
+                event.key === 'afc_kambil_manual_sales'
+            ) {
+                const prevOrderCount = orders.length;
+                loadFromStorage();
+                renderMenu();
+                updateAdminUI();
+
+                if (event.key === 'afc_kambil_orders' && orders.length > prevOrderCount) {
+                    const adminModal = document.getElementById('admin-modal');
+                    if (adminModal && !adminModal.classList.contains('hidden')) {
+                        showToast(`New Live Order Received: ${orders[0].id}!`);
+                    }
+                }
+
+                const trackedId = document.getElementById('track-order-id-input')?.value.trim();
+                if (trackedId) {
+                    syncCustomerTrackerWithAdmin(trackedId);
+                }
+            }
+        });
+
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            if (!container) return;
+            const toast = document.createElement('div');
+            const bgColor = type === 'error' ? 'bg-red-600' : 'bg-emerald-600';
+            toast.className = `${bgColor} text-white px-5 py-3 rounded-xl shadow-2xl text-sm font-bold flex items-center gap-2.5 transform transition-all duration-300 translate-y-2 opacity-0 pointer-events-auto border border-white/10`;
+            toast.innerHTML = `<i class="fa-solid ${type === 'error' ? 'fa-circle-exclamation' : 'fa-circle-check'}"></i><span>${message}</span>`;
+            container.appendChild(toast);
+
+            requestAnimationFrame(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            });
+
+            setTimeout(() => {
+                toast.classList.add('translate-y-2', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'EN' ? 'ML' : 'EN';
+            const langLabel = document.getElementById('lang-label');
+            if (langLabel) {
+                langLabel.textContent = currentLang === 'EN' ? 'MALAYALAM' : 'ENGLISH';
+            }
+            document.querySelectorAll('[data-ml]').forEach(el => {
+                el.textContent = currentLang === 'ML' ? el.getAttribute('data-ml') : el.getAttribute('data-en');
+            });
+            showToast(currentLang === 'ML' ? 'മലയാളത്തിലേക്ക് മാറ്റി' : 'Switched to English');
+        }
+
+        function filterCategory(category) {
+            currentCategory = category;
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                if (btn.textContent.includes(category) || (category === 'All' && btn.textContent.includes('All Items'))) {
+                    btn.className = 'cat-btn active px-4 py-2 rounded-xl text-sm font-bold bg-amber-500 text-gray-950 transition-all whitespace-nowrap cursor-pointer';
+                } else {
+                    btn.className = 'cat-btn px-4 py-2 rounded-xl text-sm font-semibold text-gray-300 hover:bg-gray-800 transition-all whitespace-nowrap cursor-pointer';
+                }
+            });
+            renderMenu();
+        }
+
+        function toggleManageMode() {
+            manageMode = !manageMode;
+            const btnText = document.getElementById('manage-btn-text');
+            if (btnText) {
+                btnText.textContent = manageMode ? 'Done Editing' : 'Edit / Delete Items';
+            }
+            renderMenu();
+            showToast(manageMode ? 'Edit/Delete mode enabled' : 'Exited edit mode');
+        }
+
+        function renderMenu() {
+            const grid = document.getElementById('menu-grid');
+            const emptyState = document.getElementById('empty-menu-state');
+            const searchInput = document.getElementById('menu-search');
+            if (!grid) return;
+
+            const searchTerm = (searchInput ? searchInput.value : '').toLowerCase().trim();
+
+            const filtered = menuItems.filter(item => {
+                const matchesCat = currentCategory === 'All' || item.category === currentCategory;
+                const matchesSearch = item.name.toLowerCase().includes(searchTerm) || (item.desc && item.desc.toLowerCase().includes(searchTerm));
+                return matchesCat && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                if (emptyState) emptyState.classList.remove('hidden');
+                return;
+            }
+
+            if (emptyState) emptyState.classList.add('hidden');
+            grid.innerHTML = filtered.map(item => `
+                <div class="bg-gray-900 rounded-3xl overflow-hidden border border-amber-500/20 hover:border-amber-500/50 transition-all shadow-xl flex flex-col justify-between group">
+                    <div>
+                        <div class="h-52 w-full relative overflow-hidden bg-gray-800">
+                            <img src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x400/171717/FBBF24?text=${encodeURIComponent(item.name)}'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-transparent to-transparent"></div>
+                            ${item.tag ? `<span class="absolute top-3 left-3 bg-amber-500 text-gray-950 text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full shadow-md">${item.tag}</span>` : ''}
+                            <span class="absolute bottom-3 right-3 bg-gray-950/90 text-amber-400 font-display text-xl font-bold px-3.5 py-1 rounded-xl border border-amber-500/30 shadow-lg">₹${item.price}</span>
+                        </div>
+                        <div class="p-5">
+                            <span class="text-[11px] font-bold uppercase tracking-widest text-amber-400/80">${item.category}</span>
+                            <h3 class="font-display text-xl text-white font-bold mt-1">${item.name}</h3>
+                            <p class="text-gray-400 text-xs sm:text-sm mt-2 line-clamp-2 leading-relaxed">${item.desc || 'Freshly prepared at American Fried Chicken Kambil.'}</p>
+                        </div>
+                    </div>
+                    <div class="px-5 pb-5 pt-2">
+                        ${manageMode ? `
+                            <div class="grid grid-cols-2 gap-2">
+                                <button onclick="openEditModal(${item.id})" class="bg-gray-800 hover:bg-gray-700 text-amber-400 font-bold py-2.5 rounded-xl text-xs transition-colors flex items-center justify-center gap-1.5 cursor-pointer border border-amber-500/30">
+                                    <i class="fa-solid fa-pen"></i> Edit
+                                </button>
+                                <button onclick="deleteMenuItem(${item.id})" class="bg-red-900/60 hover:bg-red-700 text-white font-bold py-2.5 rounded-xl text-xs transition-colors flex items-center justify-center gap-1.5 cursor-pointer border border-red-500/30">
+                                    <i class="fa-solid fa-trash"></i> Delete
+                                </button>
+                            </div>
+                        ` : `
+                            <button onclick="addToCart(${item.id})" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-gray-950 font-extrabold py-3 rounded-xl text-sm transition-all flex items-center justify-center gap-2 shadow-lg cursor-pointer">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        `}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openAddModal() {
+            document.getElementById('modal-title').textContent = 'ADD NEW MENU ITEM';
+            document.getElementById('edit-item-id').value = '';
+            document.getElementById('menu-form').reset();
+            const defaultImg = 'https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?q=80&w=800&auto=format&fit=crop';
+            document.getElementById('item-image').value = defaultImg;
+            updateImagePreview(defaultImg);
+            const modal = document.getElementById('menu-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function openEditModal(id) {
+            const item = menuItems.find(i => i.id === id);
+            if (!item) return;
+            document.getElementById('modal-title').textContent = 'EDIT MENU ITEM';
+            document.getElementById('edit-item-id').value = item.id;
+            document.getElementById('item-name').value = item.name;
+            document.getElementById('item-category').value = item.category;
+            document.getElementById('item-price').value = item.price;
+            document.getElementById('item-image').value = item.image;
+            updateImagePreview(item.image);
+            document.getElementById('item-tag').value = item.tag || '';
+            document.getElementById('item-desc').value = item.desc || '';
+            const modal = document.getElementById('menu-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function updateImagePreview(url) {
+            const preview = document.getElementById('item-image-preview');
+            if (preview && url) {
+                preview.src = url;
+            }
+        }
+
+        function selectPresetImage(url) {
+            document.getElementById('item-image').value = url;
+            updateImagePreview(url);
+        }
+
+        function handleImageUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = new Image();
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    const maxWidth = 600;
+                    const scale = Math.min(1, maxWidth / img.width);
+                    canvas.width = img.width * scale;
+                    canvas.height = img.height * scale;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                    const compressedDataUrl = canvas.toDataURL('image/jpeg', 0.8);
+                    document.getElementById('item-image').value = compressedDataUrl;
+                    updateImagePreview(compressedDataUrl);
+                    showToast('Photo uploaded & ready!');
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('menu-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function saveMenuItem(e) {
+            e.preventDefault();
+            const editId = document.getElementById('edit-item-id').value;
+            const name = document.getElementById('item-name').value.trim();
+            const category = document.getElementById('item-category').value;
+            const price = parseFloat(document.getElementById('item-price').value);
+            const image = document.getElementById('item-image').value.trim();
+            const tag = document.getElementById('item-tag').value.trim();
+            const desc = document.getElementById('item-desc').value.trim();
+
+            if (editId) {
+                const index = menuItems.findIndex(i => i.id == editId);
+                if (index !== -1) {
+                    menuItems[index] = { ...menuItems[index], name, category, price, image, tag, desc };
+                    showToast('Menu item updated!');
+                }
+            } else {
+                const newItem = {
+                    id: Date.now(),
+                    name,
+                    category,
+                    price,
+                    image,
+                    tag,
+                    desc
+                };
+                menuItems.unshift(newItem);
+                showToast('New menu item added!');
+            }
+
+            saveToStorage();
+            renderMenu();
+            updateAdminUI();
+            closeModal();
+        }
+
+        function deleteMenuItem(id) {
+            menuItems = menuItems.filter(i => i.id !== id);
+            saveToStorage();
+            renderMenu();
+            updateAdminUI();
+            showToast('Item removed from menu', 'error');
+        }
+
+        function addToCart(id) {
+            const item = menuItems.find(i => i.id === id);
+            if (!item) return;
+
+            const existing = cart.find(c => c.id === id);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ ...item, qty: 1 });
+            }
+            updateCartUI();
+            showToast(`Added ${item.name} to cart`);
+        }
+
+        function updateCartQty(id, delta) {
+            const index = cart.findIndex(c => c.id === id);
+            if (index === -1) return;
+            cart[index].qty += delta;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+            const badge = document.getElementById('cart-badge-count');
+            const totalEl = document.getElementById('cart-total-price');
+            if (badge) badge.textContent = totalItems;
+            if (totalEl) totalEl.textContent = `₹${totalPrice}`;
+
+            const container = document.getElementById('cart-items-container');
+            const ploioPreview = document.getElementById('ploio-cart-summary-preview');
+            if (!container) return;
+
+            if (cart.length === 0) {
+                container.innerHTML = `<div class="text-center py-10 text-gray-500 text-sm">Your cart is empty. Add delicious items from our menu!</div>`;
+                if (ploioPreview) {
+                    ploioPreview.innerHTML = `No items in active cart. Add items from the menu below to checkout.`;
+                }
+                return;
+            }
+
+            container.innerHTML = cart.map(item => `
+                <div class="flex items-center justify-between gap-3 bg-gray-950 p-3.5 rounded-2xl border border-gray-800">
+                    <div class="flex items-center gap-3">
+                        <img src="${item.image}" alt="${item.name}" class="w-12 h-12 rounded-xl object-cover">
+                        <div>
+                            <h4 class="text-sm font-bold text-white leading-tight">${item.name}</h4>
+                            <span class="text-xs text-amber-400 font-bold">₹${item.price * item.qty}</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 bg-gray-900 rounded-xl p-1 border border-gray-800">
+                        <button onclick="updateCartQty(${item.id}, -1)" class="w-7 h-7 rounded-lg bg-gray-800 hover:bg-gray-700 text-white text-xs font-bold cursor-pointer">-</button>
+                        <span class="text-xs font-bold text-white w-5 text-center">${item.qty}</span>
+                        <button onclick="updateCartQty(${item.id}, 1)" class="w-7 h-7 rounded-lg bg-amber-500 text-gray-950 text-xs font-bold cursor-pointer">+</button>
+                    </div>
+                </div>
+            `).join('');
+
+            if (ploioPreview) {
+                ploioPreview.innerHTML = `<span class="text-amber-400 font-bold">${totalItems} item(s)</span> ready • Total: <span class="text-white font-bold">₹${totalPrice}</span>`;
+            }
+        }
+
+        function toggleCartModal() {
+            const modal = document.getElementById('cart-modal');
+            if (!modal) return;
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            } else {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+        }
+
+        function toggleLocationField() {
+            const type = document.getElementById('checkout-type').value;
+            const wrapper = document.getElementById('checkout-location-wrapper');
+            if (wrapper) {
+                wrapper.style.display = type === 'Delivery' ? 'block' : 'none';
+            }
+        }
+
+        function detectCustomerLocation() {
+            const locationInput = document.getElementById('checkout-location');
+            if (!navigator.geolocation) {
+                showToast('GPS not supported on this browser', 'error');
+                return;
+            }
+            showToast('Fetching your live GPS location...');
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const lat = position.coords.latitude.toFixed(6);
+                    const lng = position.coords.longitude.toFixed(6);
+                    const mapLink = `https://maps.google.com/?q=${lat},${lng}`;
+                    locationInput.value = `GPS Pin: ${mapLink}`;
+                    showToast('Live location pinned!');
+                },
+                () => {
+                    showToast('Unable to access GPS. Please type your address.', 'error');
+                },
+                { enableHighAccuracy: true, timeout: 8000 }
+            );
+        }
+
+        function checkoutWhatsApp() {
+            if (cart.length === 0) {
+                showToast('Please add items to your cart first!', 'error');
+                return;
+            }
+            const name = document.getElementById('checkout-name').value.trim() || 'Customer';
+            const phone = document.getElementById('checkout-phone').value.trim() || 'Not provided';
+            const type = document.getElementById('checkout-type').value;
+            const payment = document.getElementById('checkout-payment').value;
+            const location = document.getElementById('checkout-location').value.trim();
+
+            if (type === 'Delivery' && !location) {
+                showToast('Please enter your delivery location or click Use Current GPS!', 'error');
+                document.getElementById('checkout-location').focus();
+                return;
+            }
+
+            const total = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+            const itemsSummary = cart.map(i => `${i.name} x${i.qty}`).join(', ');
+            const finalLocation = type === 'Delivery' ? location : 'Takeaway Pickup';
+
+            const orderId = 'AFC-' + Math.floor(100000 + Math.random() * 900000);
+            const newOrder = {
+                id: orderId,
+                name,
+                phone,
+                location: finalLocation,
+                items: itemsSummary,
+                total,
+                type,
+                status: 'Order Placed',
+                timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+            };
+            orders.unshift(newOrder);
+            saveToStorage();
+            updateAdminUI();
+
+            const locationLine = type === 'Delivery' ? `*Delivery Location:* ${encodeURIComponent(location)}%0A` : '';
+            const itemsList = cart.map(i => `• ${i.name} x${i.qty} = ₹${i.price * i.qty}`).join('%0A');
+            const message = `*New Order (${orderId}) - American Fried Chicken Kambil*%0A%0A*Customer:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Type:* ${type}%0A${locationLine}*Payment:* ${payment}%0A%0A*Items:*%0A${itemsList}%0A%0A*Total Amount:* ₹${total}`;
+
+            cart = [];
+            updateCartUI();
+            toggleCartModal();
+
+            const trackInput = document.getElementById('track-order-id-input');
+            if (trackInput) trackInput.value = orderId;
+            startPloioSimulation(orderId);
+
+            window.open(`https://wa.me/919072113450?text=${message}`, '_blank');
+            showToast(`Order ${orderId} sent to WhatsApp!`);
+        }
+
+        function trackOrderLive() {
+            const id = document.getElementById('track-order-id-input').value.trim();
+            if (!id) {
+                showToast('Enter an Order ID to track', 'error');
+                return;
+            }
+            startPloioSimulation(id);
+        }
+
+        function syncCustomerTrackerWithAdmin(orderId) {
+            const foundOrder = orders.find(o => o.id.toLowerCase() === orderId.toLowerCase());
+            if (!foundOrder) return false;
+
+            const statusToStep = {
+                'Order Placed': 1,
+                'Preparing': 2,
+                'Packing': 3,
+                'Out for Delivery': 4,
+                'Delivered': 4
+            };
+            const step = statusToStep[foundOrder.status] || 1;
+            updateTrackingStep(step, foundOrder.status);
+            return true;
+        }
+
+        function startPloioSimulation(orderId) {
+            if (trackingInterval) clearInterval(trackingInterval);
+            const badge = document.getElementById('order-id-badge');
+            if (badge) {
+                badge.textContent = orderId;
+                badge.className = 'bg-amber-500/20 text-amber-400 text-xs px-3 py-1.5 rounded-full font-mono border border-amber-500/40 font-bold';
+            }
+
+            if (syncCustomerTrackerWithAdmin(orderId)) {
+                trackingInterval = setInterval(() => {
+                    loadFromStorage();
+                    syncCustomerTrackerWithAdmin(orderId);
+                }, 2000);
+                return;
+            }
+
+            let step = 1;
+            updateTrackingStep(step);
+
+            trackingInterval = setInterval(() => {
+                step++;
+                if (step <= 4) {
+                    updateTrackingStep(step);
+                } else {
+                    clearInterval(trackingInterval);
+                }
+            }, 3500);
+        }
+
+        function updateTrackingStep(activeStep, customStatusText = '') {
+            for (let i = 1; i <= 4; i++) {
+                const icon = document.getElementById(`step-${i}-icon`);
+                const title = document.getElementById(`step-${i}-title`);
+                if (!icon || !title) continue;
+                if (i <= activeStep) {
+                    icon.className = 'w-8 h-8 rounded-full bg-emerald-500 text-gray-950 flex items-center justify-center font-bold text-xs shrink-0 z-10 shadow-lg shadow-emerald-500/30 transition-all';
+                    icon.innerHTML = '<i class="fa-solid fa-check"></i>';
+                    title.className = 'text-sm font-bold text-white';
+                } else {
+                    icon.className = 'w-8 h-8 rounded-full bg-gray-800 text-gray-400 flex items-center justify-center font-bold text-xs shrink-0 z-10 transition-all';
+                    icon.textContent = i;
+                    title.className = 'text-sm font-bold text-gray-400';
+                }
+            }
+            const footer = document.getElementById('tracking-footer');
+            const messages = [
+                'Order confirmed by Kambil kitchen!',
+                'Chefs are pressure-frying your chicken fresh...',
+                'Packing hot fries, buns, and signature garlic mayo...',
+                customStatusText === 'Delivered' ? 'Order Delivered! Enjoy your meal!' : 'Ploio rider is arriving at your doorstep in Kambil!'
+            ];
+            if (footer) {
+                footer.innerHTML = `<p class="text-xs text-emerald-400 font-bold animate-pulse">${messages[activeStep - 1]}</p>`;
+            }
+        }
+
+        function submitTableBooking(e) {
+            e.preventDefault();
+            const name = document.getElementById('book-name').value.trim();
+            const phone = document.getElementById('book-phone').value.trim();
+            const date = document.getElementById('book-date').value;
+            const time = document.getElementById('book-time').value;
+            const guests = document.getElementById('book-guests').value;
+            const notes = document.getElementById('book-notes').value.trim();
+
+            const booking = {
+                id: 'BK-' + Math.floor(100 + Math.random() * 900),
+                name, phone, date, time, guests, notes
+            };
+            bookings.unshift(booking);
+            saveToStorage();
+            updateAdminUI();
+            e.target.reset();
+            showToast(`Table booked for ${name} on ${date}!`);
+        }
+
+        function openAddSalesModal() {
+            const modal = document.getElementById('add-sales-modal');
+            const amountInput = document.getElementById('manual-sales-amount');
+            const noteInput = document.getElementById('manual-sales-note');
+            if (!modal || !amountInput) return;
+            amountInput.value = '';
+            if (noteInput) noteInput.value = '';
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            setTimeout(() => amountInput.focus(), 100);
+        }
+
+        function closeAddSalesModal() {
+            const modal = document.getElementById('add-sales-modal');
+            if (!modal) return;
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function submitManualSales(e) {
+            e.preventDefault();
+            const amount = parseFloat(document.getElementById('manual-sales-amount').value);
+            const note = document.getElementById('manual-sales-note')?.value.trim() || '';
+            if (isNaN(amount) || amount <= 0) {
+                showToast('Please enter a valid sales amount', 'error');
+                return;
+            }
+            manualSales += amount;
+            saveToStorage();
+            updateAdminUI();
+            closeAddSalesModal();
+            showToast(`Added ₹${amount.toLocaleString()} to Total Sales${note ? ` (${note})` : ''}!`);
+        }
+
+        function openAdminModal() {
+            const authModal = document.getElementById('admin-auth-modal');
+            const passInput = document.getElementById('admin-password-input');
+            if (!authModal || !passInput) return;
+            passInput.value = '';
+            authModal.classList.remove('hidden');
+            authModal.classList.add('flex');
+            setTimeout(() => passInput.focus(), 100);
+        }
+
+        function closeAdminAuthModal() {
+            const authModal = document.getElementById('admin-auth-modal');
+            if (!authModal) return;
+            authModal.classList.add('hidden');
+            authModal.classList.remove('flex');
+        }
+
+        function verifyAdminPassword(e) {
+            e.preventDefault();
+            const enteredPin = document.getElementById('admin-password-input').value.trim();
+            if (enteredPin === '106648') {
+                closeAdminAuthModal();
+                loadFromStorage();
+                updateAdminUI();
+                const modal = document.getElementById('admin-modal');
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                startAdminLivePolling();
+                showToast('Live Admin Dashboard Unlocked!');
+            } else {
+                showToast('Incorrect Password! Access Denied.', 'error');
+                document.getElementById('admin-password-input').value = '';
+                document.getElementById('admin-password-input').focus();
+            }
+        }
+
+        function closeAdminModal() {
+            const modal = document.getElementById('admin-modal');
+            if (!modal) return;
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            if (adminLiveTimer) {
+                clearInterval(adminLiveTimer);
+                adminLiveTimer = null;
+            }
+        }
+
+        function startAdminLivePolling() {
+            if (adminLiveTimer) clearInterval(adminLiveTimer);
+            const updateClock = () => {
+                const clockEl = document.getElementById('admin-live-clock');
+                if (clockEl) {
+                    clockEl.textContent = new Date().toLocaleTimeString();
+                }
+            };
+            updateClock();
+            adminLiveTimer = setInterval(() => {
+                updateClock();
+                const prevCount = orders.length;
+                loadFromStorage();
+                if (orders.length !== prevCount) {
+                    updateAdminUI();
+                }
+            }, 1000);
+        }
+
+        function updateOrderStatus(orderId, newStatus) {
+            const orderIndex = orders.findIndex(o => o.id === orderId);
+            if (orderIndex === -1) return;
+            orders[orderIndex].status = newStatus;
+            saveToStorage();
+            updateAdminUI();
+
+            const trackedId = document.getElementById('track-order-id-input')?.value.trim();
+            if (trackedId && trackedId.toLowerCase() === orderId.toLowerCase()) {
+                syncCustomerTrackerWithAdmin(orderId);
+            }
+            showToast(`Order ${orderId} updated to "${newStatus}"`);
+        }
+
+        function deleteAdminBooking(bookingId) {
+            bookings = bookings.filter(b => b.id !== bookingId);
+            saveToStorage();
+            updateAdminUI();
+            showToast('Reservation removed');
+        }
+
+        function switchAdminTab(tab) {
+            ['orders', 'bookings', 'menu'].forEach(t => {
+                document.getElementById(`admin-tab-${t}`).classList.add('hidden');
+                document.getElementById(`tab-btn-${t}`).className = 'admin-tab-btn px-4 py-2 rounded-xl text-sm font-semibold text-gray-300 hover:bg-gray-800 cursor-pointer';
+            });
+            document.getElementById(`admin-tab-${tab}`).classList.remove('hidden');
+            document.getElementById(`tab-btn-${tab}`).className = 'admin-tab-btn active px-4 py-2 rounded-xl text-sm font-bold bg-amber-500 text-gray-950 cursor-pointer';
+        }
+
+        function clearAdminOrders() {
+            orders = [];
+            saveToStorage();
+            updateAdminUI();
+            showToast('Order history cleared');
+        }
+
+        function updateAdminUI() {
+            const ordersSales = orders.reduce((sum, o) => sum + (o.total || 0), 0);
+            const totalSales = ordersSales + (manualSales || 0);
+            const salesEl = document.getElementById('admin-total-sales');
+            const ordersCountEl = document.getElementById('admin-today-orders');
+            const bookingsCountEl = document.getElementById('admin-active-bookings');
+            const menuCountEl = document.getElementById('admin-menu-count');
+
+            if (salesEl) salesEl.textContent = `₹${totalSales.toLocaleString()}`;
+            if (ordersCountEl) ordersCountEl.textContent = orders.length;
+            if (bookingsCountEl) bookingsCountEl.textContent = bookings.length;
+            if (menuCountEl) menuCountEl.textContent = menuItems.length;
+
+            const statusColors = {
+                'Order Placed': 'bg-blue-500/20 text-blue-400 border-blue-500/40',
+                'Preparing': 'bg-amber-500/20 text-amber-400 border-amber-500/40',
+                'Packing': 'bg-purple-500/20 text-purple-400 border-purple-500/40',
+                'Out for Delivery': 'bg-orange-500/20 text-orange-400 border-orange-500/40',
+                'Delivered': 'bg-emerald-500/20 text-emerald-400 border-emerald-500/40'
+            };
+
+            const ordersList = document.getElementById('admin-orders-list');
+            if (ordersList) {
+                ordersList.innerHTML = orders.length ? orders.map(o => `
+                    <div class="bg-gray-950 p-4 rounded-2xl border border-gray-800 hover:border-amber-500/30 transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <div>
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <span class="text-xs font-mono text-amber-400 font-bold">${o.id}</span>
+                                <span class="text-xs bg-gray-800 text-gray-300 px-2 py-0.5 rounded-md">${o.type || 'Delivery'}</span>
+                                ${o.timestamp ? `<span class="text-[11px] text-gray-500">${o.timestamp}</span>` : ''}
+                            </div>
+                            <div class="text-sm font-bold text-white mt-1">${o.name} <span class="text-xs font-normal text-gray-400">(${o.phone})</span></div>
+                            <p class="text-xs text-gray-300 mt-1">${o.items}</p>
+                            ${o.location ? `<p class="text-xs text-amber-400/90 mt-1"><i class="fa-solid fa-location-dot mr-1"></i>${o.location}</p>` : ''}
+                        </div>
+                        <div class="flex items-center gap-3 self-end sm:self-center">
+                            <span class="text-base font-bold text-amber-400">₹${o.total}</span>
+                            <select onchange="updateOrderStatus('${o.id}', this.value)" class="text-xs font-bold px-3 py-2 rounded-xl border bg-gray-900 cursor-pointer focus:outline-none ${statusColors[o.status] || 'text-emerald-400 border-emerald-500/40'}">
+                                <option value="Order Placed" ${o.status === 'Order Placed' ? 'selected' : ''}>Order Placed</option>
+                                <option value="Preparing" ${o.status === 'Preparing' ? 'selected' : ''}>Preparing</option>
+                                <option value="Packing" ${o.status === 'Packing' ? 'selected' : ''}>Packing</option>
+                                <option value="Out for Delivery" ${o.status === 'Out for Delivery' ? 'selected' : ''}>Out for Delivery</option>
+                                <option value="Delivered" ${o.status === 'Delivered' ? 'selected' : ''}>Delivered</option>
+                            </select>
+                        </div>
+                    </div>
+                `).join('') : '<p class="text-xs text-gray-500">No recent orders.</p>';
+            }
+
+            const bookingsList = document.getElementById('admin-bookings-list');
+            if (bookingsList) {
+                bookingsList.innerHTML = bookings.length ? bookings.map(b => `
+                    <div class="bg-gray-950 p-4 rounded-2xl border border-gray-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <div>
+                            <span class="text-xs font-mono text-amber-400 font-bold">${b.id}</span> • <span class="text-sm font-bold text-white">${b.name}</span> (${b.phone})
+                            <p class="text-xs text-gray-400 mt-1">${b.date} at ${b.time} • ${b.guests} ${b.notes ? `(${b.notes})` : ''}</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs bg-amber-500/20 text-amber-400 px-2.5 py-1 rounded-full font-bold">Confirmed</span>
+                            <button onclick="deleteAdminBooking('${b.id}')" class="text-xs text-red-400 hover:text-red-300 px-2 py-1 cursor-pointer"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </div>
+                `).join('') : '<p class="text-xs text-gray-500">No active bookings.</p>';
+            }
+
+            const adminMenuList = document.getElementById('admin-menu-list');
+            if (adminMenuList) {
+                adminMenuList.innerHTML = menuItems.map(m => `
+                    <div class="bg-gray-950 p-3 rounded-xl border border-gray-800 flex items-center justify-between">
+                        <div>
+                            <span class="text-sm font-bold text-white">${m.name}</span>
+                            <span class="text-xs text-gray-400 ml-2">(${m.category})</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-sm font-bold text-amber-400">₹${m.price}</span>
+                            <button onclick="openEditModal(${m.id}); closeAdminModal();" class="text-amber-400 hover:text-amber-300 text-xs font-bold cursor-pointer">Edit</button>
+                            <button onclick="deleteMenuItem(${m.id})" class="text-red-400 hover:text-red-300 text-xs font-bold cursor-pointer">Delete</button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        window.onload = function() {
+            loadFromStorage();
+            renderMenu();
+            updateCartUI();
+            updateAdminUI();
+        };
+    </script>
+</body>
+</html>
